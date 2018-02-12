@@ -17,10 +17,12 @@ public class Homematic {
         Adress adr = new Adress(1);
         System.out.println(adr.getCity());*/
 
-        ResultSet rs = Database.GetDataFromDB("select * from user where id = " + 1);
+        ResultSet rs = Database.GetDataFromDB("select * from user where email = 'nikola@homematic.online'");
         if (rs.next()) {
             System.out.println(rs.getString(3));
         }
+
+        System.out.println(Login.LoginUser("nikola@homematic.online", "admin", false));
 
     }
 }
