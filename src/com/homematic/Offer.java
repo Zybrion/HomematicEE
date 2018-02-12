@@ -1,2 +1,4 @@
-package homematic;public class Offer {
+package com.homematic;
+
+public class Offer {
 }

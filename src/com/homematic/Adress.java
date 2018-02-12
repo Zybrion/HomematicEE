@@ -1,4 +1,4 @@
-package homematic;
+package com.homematic;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -20,11 +20,13 @@ public class Adress {
         ResultSetMetaData rsmd = rs.getMetaData();
         int column_count = rsmd.getColumnCount();
 
-        this.country = rs.getString(2);
-        this.postal_code = rs.getString(3);
-        this.city = rs.getString(4);
-        this.street = rs.getString(5);
-        this.number = rs.getString(6);
+        if (rs.next()) {
+            this.country = rs.getString(2);
+            this.postal_code = rs.getString(3);
+            this.city = rs.getString(4);
+            this.street = rs.getString(5);
+            this.number = rs.getString(6);
+        }
 
         Database.CloseConnection();
     }

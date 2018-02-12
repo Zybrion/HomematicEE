@@ -1,4 +1,4 @@
-package homematic;
+package com.homematic;
 
 public class Household {
 
@@ -19,7 +19,7 @@ public class Household {
     }
 
     private int SaveHouseholdInDB(String name, int adress_id, int payment_method_id) {
-        return Database.WriteDataToDB("INSERT INTO household (name, adress_id, payment_method_id) " +
+        return Database.WriteDataToDB("INSERT INTO household (name, adress_id, payment_id) " +
                 "VALUES ('" + name + "', '" + adress_id + "" +
                 "', '" + payment_method_id + "')");
     }

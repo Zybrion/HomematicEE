@@ -1,2 +1,4 @@
-package homematic;public class InvoicePosition {
+package com.homematic;
+
+public class InvoicePosition {
 }

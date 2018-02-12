@@ -1,2 +1,4 @@
-package homematic;public class Delivery {
+package com.homematic;
+
+public class Delivery {
 }

@@ -1,2 +1,4 @@
-package homematic;public class Invoice {
+package com.homematic;
+
+public class Invoice {
 }

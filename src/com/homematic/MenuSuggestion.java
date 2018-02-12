@@ -1,2 +1,4 @@
-package homematic;public class MenuSuggestion {
+package com.homematic;
+
+public class MenuSuggestion {
 }

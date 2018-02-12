@@ -1,2 +1,4 @@
-package homematic;public class OrderPosition {
+package com.homematic;
+
+public class OrderPosition {
 }

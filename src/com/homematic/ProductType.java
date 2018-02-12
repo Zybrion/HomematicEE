@@ -1,4 +1,4 @@
-package homematic;
+package com.homematic;
 
 public class ProductType {
 }

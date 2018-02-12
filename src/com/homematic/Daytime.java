@@ -1,2 +1,4 @@
-package homematic;public class Daytime {
+package com.homematic;
+
+public class Daytime {
 }

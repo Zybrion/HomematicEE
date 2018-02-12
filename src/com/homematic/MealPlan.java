@@ -1,2 +1,4 @@
-package homematic;public class MealPlan {
+package com.homematic;
+
+public class MealPlan {
 }
