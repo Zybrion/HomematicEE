@@ -17,7 +17,7 @@ public class Login_Servlet extends HttpServlet {
         boolean no_logout = Boolean.parseBoolean(request.getParameter("login_no_logout"));
         try {
             boolean login = Login.LoginUser(request.getParameter("login_email"),
-                    request.getParameter("login_password"), no_logout);
+                    request.getParameter("login_password"), no_logout, request, response);
             if (login) {
                 response.sendRedirect("/index.html");
             } else {
@@ -30,6 +30,6 @@ public class Login_Servlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request, response);
     }
 }
