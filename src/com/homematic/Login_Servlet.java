@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 @WebServlet(name = "Login_Servlet")
 public class Login_Servlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean no_logout = Boolean.parseBoolean(request.getParameter("login_no_logout"));
         try {
