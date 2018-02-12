@@ -1,0 +1,57 @@
+package homematic;
+
+import java.util.Date;
+
+public class User {
+
+    private int id;
+    private String name;
+    private String firstname;
+    private String email;
+    private Date birthday;
+    private int household_id;
+    private Preference[] preference;
+
+    public User(int id) {
+        this.id = id;
+    }
+
+    public User(String name, String firstname, String email, String password, Date birthday,
+                int household_id, String picture_path) {
+        this.name = name;
+        this.firstname = firstname;
+        this.email = email;
+        this.birthday = birthday;
+        this.household_id = household_id;
+        this.id = SaveUserInDB(name, firstname, email, password, birthday, household_id, picture_path);
+    }
+
+    private int SaveUserInDB(String name, String firstname, String email, String password, Date birthday, int household_id, String picture_path) {
+        int userrole_id = 1;
+        return Database.WriteDataToDB("INSERT INTO user (name, firstname, email, birthday, household_id, " +
+                "password, userrole_id, picture_path) " +
+                "VALUES ('" + name + "', '" + firstname + "" +
+                "', '" + email + "', '" + birthday + "', '" + household_id + "', '"
+                + password + "', '" + userrole_id + "', '" + picture_path + "')");
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public int getHousehold_id() {
+        return household_id;
+    }
+}
