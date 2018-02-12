@@ -19,7 +19,7 @@ public class Login_Servlet extends HttpServlet {
             boolean login = Login.LoginUser(request.getParameter("login_email"),
                     request.getParameter("login_password"), no_logout);
             if (login) {
-                response.sendRedirect("index.html");
+                response.sendRedirect("/index.html");
             } else {
                 response.sendRedirect("login.html");
             }
