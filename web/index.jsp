@@ -294,7 +294,13 @@
         </div>
         <div class="pull-left info">
 
-          <p>Test</p>
+          <p><%
+            ResultSet rs = Database.GetDataFromDB("select firstname from user where id='1';");
+            if (rs.next()) {
+              System.out.println(rs.getString(1));
+              out.println(rs.getString(1));
+            }
+          %></p>
 
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
