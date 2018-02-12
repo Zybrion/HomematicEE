@@ -38,6 +38,7 @@ public class Login {
     public static void SetCookiesLogin(HttpServletRequest request, HttpServletResponse response,
                                        String name, String value, boolean no_logout) {
             Cookie cookie = new Cookie(name, value);
+            cookie.setDomain("com.homematic.online");
         if (no_logout) {
             cookie.setMaxAge(7*24*60*60); //One Week
         } else {
@@ -54,5 +55,6 @@ public class Login {
     }
 
     //https://www.journaldev.com/1907/java-session-management-servlet-httpsession-url-rewriting
+    //https://stackoverflow.com/questions/9203857/want-to-create-a-filter-to-check-for-a-cookie-then-save-object-and-reference-fr
 
 }
