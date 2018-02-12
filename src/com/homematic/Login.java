@@ -19,13 +19,17 @@ public class Login {
         } else {
             email = email.toLowerCase();
             String hash = Registration.CreateHash(password);
-            if (!hash.equals(rs.getString(7))) {
-                return false;
-                //System.out.println("Passwort ist nicht korrekt");
+            if (rs.next()) {
+                if (!hash.equals(rs.getString(7))) {
+                    return false;
+                    //System.out.println("Passwort ist nicht korrekt");
+                } else {
+                    SetCookies();
+                    StartSession();
+                    return true;
+                }
             } else {
-                SetCookies();
-                StartSession();
-                return true;
+                return false;
             }
         }
     }
