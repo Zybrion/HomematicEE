@@ -295,11 +295,18 @@
         <div class="pull-left info">
 
           <p><%
-            ResultSet rs = Database.GetDataFromDB("select firstname from user where id='1';");
-            if (rs.next()) {
-              System.out.println(rs.getString(1));
-              out.println(rs.getString(1));
-            }
+              Cookie[] cookies = request.getCookies();
+              if (cookies != null) {
+                  for (Cookie cookie : cookies) {
+                      if(cookie.getName() == "user_id"){
+                          String u_id = cookie.getName();
+                          ResultSet rs = Database.GetDataFromDB("SELECT firstname FROM user WHERE id='" + u_id + "';");
+                          if (rs.next()) {
+                              out.println(rs.getString(1));
+                          }
+                      }
+                  }
+              }
           %></p>
 
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
