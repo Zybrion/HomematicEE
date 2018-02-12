@@ -1,7 +1,5 @@
 package com.homematic;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

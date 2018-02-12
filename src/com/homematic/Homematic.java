@@ -22,7 +22,5 @@ public class Homematic {
             System.out.println(rs.getString(3));
         }
 
-        System.out.println(Login.LoginUser("nikola@homematic.online", "admin", false));
-
     }
 }
