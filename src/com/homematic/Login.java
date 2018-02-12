@@ -14,19 +14,20 @@ public class Login {
 
         ResultSet rs = Database.GetDataFromDB("SELECT * FROm user WHERE email = " + email.toLowerCase());
         if (!rs.next()) {
-            System.out.println("Kein Account zu dieser E-Mail-Adresse verfügbar");
+            return false;
+            //System.out.println("Kein Account zu dieser E-Mail-Adresse verfügbar");
         } else {
             email = email.toLowerCase();
             String hash = Registration.CreateHash(password);
             if (!hash.equals(rs.getString(7))) {
-                System.out.println("Passwort ist nicht korrekt");
+                return false;
+                //System.out.println("Passwort ist nicht korrekt");
             } else {
                 SetCookies();
                 StartSession();
+                return true;
             }
         }
-
-        return false;
     }
 
     private static void SetCookies() {
