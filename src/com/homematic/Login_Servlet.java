@@ -1,7 +1,5 @@
 package com.homematic;
 
-import com.homematic.Login;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
