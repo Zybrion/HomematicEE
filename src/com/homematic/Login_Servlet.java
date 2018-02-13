@@ -13,14 +13,18 @@ import java.sql.SQLException;
 public class Login_Servlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        boolean no_logout = Boolean.parseBoolean(request.getParameter("login_no_logout"));
+        boolean no_logout = false;
+        String s = request.getParameter("login_no_logout");
+        if (s.equals("on")) {
+            no_logout = true;
+        }
         try {
             boolean login = Login.LoginUser(request.getParameter("login_email"),
                     request.getParameter("login_password"), no_logout, request, response);
             if (login) {
                 response.sendRedirect("/index.html");
             } else {
-                response.sendRedirect("login.html");
+                response.sendRedirect("/show/login.html");
             }
 
         } catch (SQLException e) {
