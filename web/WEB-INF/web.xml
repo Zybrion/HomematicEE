@@ -23,6 +23,15 @@
         <url-pattern>/show/login.html</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>RegisterServletURL</servlet-name>
+        <jsp-file>/show/register.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServletURL</servlet-name>
+        <url-pattern>/show/register.html</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>LoginServletRelPath</servlet-name>
