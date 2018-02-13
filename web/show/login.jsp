@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Log in</title>
+    <title>HomeMatic | Log in</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -63,13 +63,11 @@
             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
             <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
         </div><!-- /.social-auth-links -->--%>
-        <a href="login.jsp" style='height: 100%; width: 100%; object-fit: contain'><img src=""></a>
         <a href="#">Ich habe mein Passwort vergessen!</a><br>
-        <a href="../pages/examples/register.html" class="text-center">Registriere einen neuen Haushalt</a>
+        <a href="register.html" class="text-center">Registriere einen neuen Haushalt</a>
 
     </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->
-
 <!-- jQuery 2.1.3 -->
 <script src="../plugins/jQuery/jQuery-2.1.3.min.js"></script>
 <!-- Bootstrap 3.3.2 JS -->
