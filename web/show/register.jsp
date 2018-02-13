@@ -31,12 +31,12 @@
 <body class="register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="../../index2.html"><b>Home</b>Matic</a>
+        <a href="../../index.html"><b>Home</b>Matic</a>
     </div>
 
     <div class="register-box-body">
         <p class="login-box-msg">Registriere einen neuen Haushalt</p>
-        <form action="../../index.html" method="post">
+        <form action="reg" method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Haushaltsname" name="registration_household_name"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -67,7 +67,7 @@
             <b>Persönliche Angaben</b>
             <div class="form-group has-feedback">
                 <input type="password" class="form-control" placeholder="Land" name="registration_country"/>
-                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
                 <input type="password" class="form-control" placeholder="Ort" name="registration_city"/>
