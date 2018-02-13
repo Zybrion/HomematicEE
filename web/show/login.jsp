@@ -63,6 +63,7 @@
             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
             <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
         </div><!— /.social-auth-links —>--%>
+        <br>
         <a href="#">Ich habe mein Passwort vergessen!</a><br>
         <a href="register.html" class="text-center">Registriere einen neuen Haushalt</a>
 
@@ -85,3 +86,4 @@
 </script>
 </body>
 </html>
+

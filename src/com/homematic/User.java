@@ -1,5 +1,7 @@
 package com.homematic;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class User {
@@ -11,6 +13,7 @@ public class User {
     private String birthday;
     private int household_id;
     private Preference[] preference;
+    private String picture_path;
 
     public User(int id) {
         this.id = id;
@@ -54,5 +57,13 @@ public class User {
 
     public int getHousehold_id() {
         return household_id;
+    }
+
+    public String getPicture_path(int id) throws SQLException {
+        ResultSet rs =  Database.GetDataFromDB("SELECT picture_path FROM user WHERE id = '" + id + "'");
+        if(!rs.next()){
+            picture_path = rs.getString(1);
+        }
+        return picture_path;
     }
 }
