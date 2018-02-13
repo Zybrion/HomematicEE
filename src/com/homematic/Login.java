@@ -39,6 +39,7 @@ public class Login {
                                        String name, String value, boolean no_logout) {
             Cookie cookie = new Cookie(name, value);
             cookie.setDomain("localhost");
+            cookie.setPath("/");
         if (no_logout) {
             cookie.setMaxAge(7*24*60*60); //One Week
         } else {
