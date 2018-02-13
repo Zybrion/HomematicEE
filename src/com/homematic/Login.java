@@ -55,6 +55,15 @@ public class Login {
         HttpSession session = request.getSession();
     }
 
+    public static void SetCookiesLogout(HttpServletRequest request, HttpServletResponse response,
+                                       String name) {
+        Cookie cookie = new Cookie(name, "");
+        //cookie.setDomain("com.homematic.online");
+        cookie.setPath("/");
+        cookie.setMaxAge(0); //Destroy Cookie
+        response.addCookie(cookie);
+    }
+
     //https://www.journaldev.com/1907/java-session-management-servlet-httpsession-url-rewriting
     //https://stackoverflow.com/questions/9203857/want-to-create-a-filter-to-check-for-a-cookie-then-save-object-and-reference-fr
 

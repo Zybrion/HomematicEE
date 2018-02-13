@@ -5,6 +5,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+    ResultSet rs = null;
+
     Cookie[] cookies = request.getCookies();
     String u_id = null;
     if (cookies != null) {
@@ -19,6 +21,15 @@
     } else {
         response.sendRedirect("/show/login.html");
     }
+
+    String name = null;
+
+    rs = Database.GetDataFromDB("SELECT name, firstname FROM user WHERE id='" + u_id + "';");
+    if (rs.next()) {
+        //out.println(rs.getString(2) + " " + rs.getString(1));
+        name = rs.getString(2) + " " + rs.getString(1);
+    }
+    Database.CloseConnection();
 
 %>
 
@@ -267,15 +278,32 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs"><%out.println(name);%></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
                                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
                                 <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    <%
+                                        out.println(name);
+
+                                        int id = 0;
+                                        String description = null;
+                                        rs = Database.GetDataFromDB("SELECT userrole_id FROM user WHERE id='" + u_id + "';");
+                                        if (rs.next()) {
+                                            id = rs.getInt(1);
+                                        }
+                                        rs = Database.GetDataFromDB("SELECT description FROM userrole WHERE id='" + id + "';");
+                                        if (rs.next()) {
+                                            description = rs.getString(1);
+                                        }
+                                        Database.CloseConnection();
+
+                                        out.println(" - " + description); //- Web Developer
+
+                                    %>
+                                    <small>Member since Feb. 2018</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
@@ -316,12 +344,7 @@
                 </div>
                 <div class="pull-left info">
 
-                    <p><%
-                        ResultSet rs = Database.GetDataFromDB("SELECT name, firstname FROM user WHERE id='" + u_id + "';");
-                        if (rs.next()) {
-                            out.println(rs.getString(2) + " " + rs.getString(1));
-                        }
-                    %></p>
+                    <p><%out.println(name);%></p>
 
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>

@@ -8,7 +8,7 @@ public class User {
     private String name;
     private String firstname;
     private String email;
-    private int birthday;
+    private String birthday;
     private int household_id;
     private Preference[] preference;
 
@@ -16,7 +16,7 @@ public class User {
         this.id = id;
     }
 
-    public User(String name, String firstname, String email, String password, int birthday,
+    public User(String name, String firstname, String email, String password, String birthday,
                 int household_id, String picture_path) {
         this.name = name;
         this.firstname = firstname;
@@ -26,7 +26,7 @@ public class User {
         this.id = SaveUserInDB(name, firstname, email, password, birthday, household_id, picture_path);
     }
 
-    private int SaveUserInDB(String name, String firstname, String email, String password, int birthday, int household_id, String picture_path) {
+    private int SaveUserInDB(String name, String firstname, String email, String password, String birthday, int household_id, String picture_path) {
         int userrole_id = 1;
         String pw_hash = Registration.CreateHash(password);
         return Database.WriteDataToDB("INSERT INTO user (name, firstname, email, birthday, household_id, " +
@@ -48,7 +48,7 @@ public class User {
         return email;
     }
 
-    public int getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 

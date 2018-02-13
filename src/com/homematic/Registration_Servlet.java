@@ -20,14 +20,13 @@ public class Registration_Servlet extends HttpServlet {
             sepa = 1;
         }
         String s = request.getParameter("registration_birthdate");
-        SimpleDateFormat date_format = new SimpleDateFormat("yyyy-mm-dd");
+        /*SimpleDateFormat date_format = new SimpleDateFormat("yyyy-mm-dd");
         Date birthday = null;
         try {
             birthday = date_format.parse(request.getParameter("registration_birthdate"));
         } catch (ParseException e) {
             e.printStackTrace();
-        }
-        int bday = Integer.parseInt(request.getParameter("registration_birthdate"));
+        }*/
         Registration.CreateDataset(request.getParameter("registration_country"),
                 request.getParameter("registration_postal_code"),
                 request.getParameter("registration_city"),
@@ -41,12 +40,12 @@ public class Registration_Servlet extends HttpServlet {
                 request.getParameter("registration_firstname"),
                 request.getParameter("registration_email"),
                 request.getParameter("registration_password"),
-                bday,
+                s,
                 request.getParameter("registration_picture_path"));
 
         try {
-            boolean login = Login.LoginUser(request.getParameter("login_email"),
-                    request.getParameter("login_password"), false, request, response);
+            boolean login = Login.LoginUser(request.getParameter("registration_email"),
+                    request.getParameter("registration_password"), false, request, response);
             if (login) {
                 response.sendRedirect("/index.html");
             } else {

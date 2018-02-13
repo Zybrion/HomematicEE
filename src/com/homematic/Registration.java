@@ -31,7 +31,7 @@ public class Registration {
                                      String payment_method_description, String payment_method_iban,
                                      int payment_method_sepa_ddm, String household_name,
                                      String user_name, String user_firstname, String user_email, String user_password,
-                                     int user_birthday, String user_picture_path) {
+                                     String user_birthday, String user_picture_path) {
 
         Adress adr = CreateAdressInDB(adress_country, adress_postal_code, adress_city,
                 adress_street, adress_number);
@@ -47,7 +47,7 @@ public class Registration {
         return new Household(household_name, adress_id, payment_method_id);
     }
 
-    private static User CreateUserInDB(String name, String firstname, String email, String password, int birthday,
+    private static User CreateUserInDB(String name, String firstname, String email, String password, String birthday,
                                        int household_id, String picture_path) {
         return new User(name, firstname, email, password, birthday, household_id, picture_path);
     }
