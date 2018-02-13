@@ -6,7 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @WebServlet(name = "Registration_Servlet")
 public class Registration_Servlet extends HttpServlet {
@@ -16,6 +19,15 @@ public class Registration_Servlet extends HttpServlet {
         if (sepa_ddm != null) {
             sepa = 1;
         }
+        String s = request.getParameter("registration_birthdate");
+        SimpleDateFormat date_format = new SimpleDateFormat("yyyy-mm-dd");
+        Date birthday = null;
+        try {
+            birthday = date_format.parse(request.getParameter("registration_birthdate"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        int bday = Integer.parseInt(request.getParameter("registration_birthdate"));
         Registration.CreateDataset(request.getParameter("registration_country"),
                 request.getParameter("registration_postal_code"),
                 request.getParameter("registration_city"),
@@ -29,7 +41,7 @@ public class Registration_Servlet extends HttpServlet {
                 request.getParameter("registration_firstname"),
                 request.getParameter("registration_email"),
                 request.getParameter("registration_password"),
-                Integer.getInteger(request.getParameter("registration_birthday")),
+                bday,
                 request.getParameter("registration_picture_path"));
 
         try {
