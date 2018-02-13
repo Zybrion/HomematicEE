@@ -11,9 +11,9 @@ import java.sql.SQLException;
 @WebServlet(name = "Registration_Servlet")
 public class Registration_Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        boolean sepa_ddm = Boolean.parseBoolean(request.getParameter("registration_sepa_ddm"));
         int sepa = 0;
-        if (sepa_ddm) {
+        String sepa_ddm = request.getParameter("registration_sepa_ddm");
+        if (sepa_ddm != null) {
             sepa = 1;
         }
         Registration.CreateDataset(request.getParameter("registration_country"),

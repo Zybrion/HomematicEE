@@ -15,10 +15,8 @@ public class Login_Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean no_logout = false;
         String s = request.getParameter("login_no_logout");
-        if (s.equals("on")) {
-            no_logout = true;
-        } else {
-
+        if (s != null) {
+            no_logout = true; //s.equals("on")
         }
         try {
             boolean login = Login.LoginUser(request.getParameter("login_email"),
