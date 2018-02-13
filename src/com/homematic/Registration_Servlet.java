@@ -6,14 +6,48 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "Registration_Servlet")
 public class Registration_Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        boolean sepa_ddm = Boolean.parseBoolean(request.getParameter("registration_sepa_ddm"));
+        int sepa = 0;
+        if (sepa_ddm) {
+            sepa = 1;
+        }
+        Registration.CreateDataset(request.getParameter("registration_country"),
+                request.getParameter("registration_postal_code"),
+                request.getParameter("registration_city"),
+                request.getParameter("registration_street"),
+                request.getParameter("registration_number"),
+                request.getParameter("registration_payment_method_description"),
+                request.getParameter("registration_iban"),
+                sepa,
+                request.getParameter("registration_household_name"),
+                request.getParameter("registration_name"),
+                request.getParameter("registration_firstname"),
+                request.getParameter("registration_email"),
+                request.getParameter("registration_password"),
+                Integer.getInteger(request.getParameter("registration_birthday")),
+                request.getParameter("registration_picture_path"));
 
+        try {
+            boolean login = Login.LoginUser(request.getParameter("login_email"),
+                    request.getParameter("login_password"), false, request, response);
+            if (login) {
+                response.sendRedirect("/index.html");
+            } else {
+                response.sendRedirect("login.html");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
     }
 }
