@@ -12,6 +12,8 @@
         <servlet-name>IndexServletURL</servlet-name>
         <url-pattern>/index.html</url-pattern>
     </servlet-mapping>
+
+
     <servlet>
         <servlet-name>LoginServletURL</servlet-name>
         <jsp-file>/show/login.jsp</jsp-file>
@@ -30,5 +32,26 @@
         <servlet-name>LoginServletRelPath</servlet-name>
         <url-pattern>/show/lis/*</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>RegistrationServletURL</servlet-name>
+        <jsp-file>/show/registration.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationServletURL</servlet-name>
+        <url-pattern>/show/Registration.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegistrationServletRelPath</servlet-name>
+        <servlet-class>com.homematic.Registration_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationServletRelPath</servlet-name>
+        <url-pattern>/show/reg/*</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>

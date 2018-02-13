@@ -299,7 +299,7 @@
               if (cookies != null) {
                   for (Cookie cookie : cookies) {
                       if(cookie.getName() == "user_id"){
-                          String u_id = cookie.getName();
+                          String u_id = cookie.getValue();
                           ResultSet rs = Database.GetDataFromDB("SELECT firstname FROM user WHERE id='" + u_id + "';");
                           if (rs.next()) {
                               out.println(rs.getString(1));
