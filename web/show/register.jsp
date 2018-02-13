@@ -38,30 +38,73 @@
         <p class="login-box-msg">Registriere einen neuen Haushalt</p>
         <form action="../../index.html" method="post">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Vorname"/>
+                <input type="text" class="form-control" placeholder="Haushaltsname" name="registration_household_name"/>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            </br>
+            <b>Benutzererstellung</b>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Vorname" name="registration_firstname"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Nachname"/>
+                <input type="text" class="form-control" placeholder="Nachname" name="registration_name"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Email"/>
+                <input type="text" class="form-control" placeholder="Geburtsdatum" name="registration_birthdate"/>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Email" name="registration_email"/>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password"/>
+                <input type="password" class="form-control" placeholder="Password" name="registration_password"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+            </br>
+            <b>Persönliche Angaben</b>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Retype password"/>
+                <input type="password" class="form-control" placeholder="Land" name="registration_country"/>
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Ort" name="registration_city"/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Postleitzahl" name="registration_postal_code"/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Straße" name="registration_street"/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Hausnummer" name="registration_number"/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            </br>
+            <b>Zahlungsangaben</b>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Zahlungsmethode" name="registration_payment_method_description"/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="IBAN" name="registration_iban"/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="checkbox icheck">
+                <label>
+                    <input type="checkbox" name="registration_sepa_ddm"> Ich bevollmächtige hiermit das SEPA-Lastschriftmandat
+                </label>
             </div>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> Ich bin mit den <a href="#">AGBs </a> einverstanden
+                            <input type="checkbox" name="registration_agb"> Ich bin mit den <a href="#">AGBs </a> einverstanden
                         </label>
                     </div>
                 </div><!-- /.col -->
@@ -71,11 +114,11 @@
             </div>
         </form>
 
-        <div class="social-auth-links text-center">
+        <%--<div class="social-auth-links text-center">
             <p>- OR -</p>
             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
             <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
-        </div>
+        </div>--%>
 
         <a href="login.html" class="text-center">Ich habe schonen einen Haushalt!</a>
     </div><!-- /.form-box -->
