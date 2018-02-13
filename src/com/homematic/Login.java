@@ -38,7 +38,8 @@ public class Login {
     public static void SetCookiesLogin(HttpServletRequest request, HttpServletResponse response,
                                        String name, String value, boolean no_logout) {
             Cookie cookie = new Cookie(name, value);
-            cookie.setDomain("localhost");
+            //cookie.setDomain("com.homematic.online");
+            cookie.setPath("/");
         if (no_logout) {
             cookie.setMaxAge(7*24*60*60); //One Week
         } else {
