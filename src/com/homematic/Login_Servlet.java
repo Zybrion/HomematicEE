@@ -17,6 +17,8 @@ public class Login_Servlet extends HttpServlet {
         String s = request.getParameter("login_no_logout");
         if (s.equals("on")) {
             no_logout = true;
+        } else {
+
         }
         try {
             boolean login = Login.LoginUser(request.getParameter("login_email"),

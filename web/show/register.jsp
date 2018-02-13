@@ -36,7 +36,7 @@
 
     <div class="register-box-body">
         <p class="login-box-msg">Registriere einen neuen Haushalt</p>
-        <form action="../../index.html" method="post">
+        <form action="reg" method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Haushaltsname" name="registration_household_name"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
