@@ -12,17 +12,17 @@
     <meta charset="UTF-8">
     <title>HomeMatic | Log in</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Bootstrap 3.3.2 -->
+    <!— Bootstrap 3.3.2 —>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome Icons -->
+    <!— Font Awesome Icons —>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
+    <!— Theme style —>
     <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-    <!-- iCheck -->
+    <!— iCheck —>
     <link href="../plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!— HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries —>
+    <!— WARNING: Respond.js doesn't work if you view the page via file:// —>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -32,7 +32,7 @@
 <div class="login-box">
     <div class="login-logo">
         <a href="../index2.html"><b>Home</b>Matic</a>
-    </div><!-- /.login-logo -->
+    </div><!— /.login-logo —>
     <div class="login-box-body">
         <p class="login-box-msg">Logge dich ein, um zu starten!</p>
         <form action="lis" method="post">
@@ -48,13 +48,13 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox" name="no_logout"> Angemeldet bleiben
+                            <input type="checkbox" name="login_no_logout"> Angemeldet bleiben
                         </label>
                     </div>
-                </div><!-- /.col -->
+                </div><!— /.col —>
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Anmelden</button>
-                </div><!-- /.col -->
+                </div><!— /.col —>
             </div>
         </form>
 
@@ -62,17 +62,17 @@
             <p>- OR -</p>
             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
             <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
-        </div><!-- /.social-auth-links -->--%>
+        </div><!— /.social-auth-links —>--%>
         <a href="#">Ich habe mein Passwort vergessen!</a><br>
         <a href="register.html" class="text-center">Registriere einen neuen Haushalt</a>
 
-    </div><!-- /.login-box-body -->
-</div><!-- /.login-box -->
-<!-- jQuery 2.1.3 -->
+    </div><!— /.login-box-body —>
+</div><!— /.login-box —>
+<!— jQuery 2.1.3 —>
 <script src="../plugins/jQuery/jQuery-2.1.3.min.js"></script>
-<!-- Bootstrap 3.3.2 JS -->
+<!— Bootstrap 3.3.2 JS —>
 <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<!-- iCheck -->
+<!— iCheck —>
 <script src="../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 <script>
     $(function () {
