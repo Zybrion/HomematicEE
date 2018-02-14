@@ -336,7 +336,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <form action="log" method="post">
+                                    <form action="/show/logout.jsp" method="post">
                                         <button type="submit" class="btn btn-default btn-flat">Abmelden</button>
                                     </form>
                                 </div>

@@ -8,7 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-    response.sendRedirect("/show/index.html");
+    Login.SetCookiesLogout(request, response, "user_id");
+    session=request.getSession();
+    session.invalidate();
+    response.sendRedirect("../index.html");
 %>
 
 <html>
