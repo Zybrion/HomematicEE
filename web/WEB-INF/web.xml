@@ -3,4 +3,81 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+    <servlet>
+        <servlet-name>IndexServletURL</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexServletURL</servlet-name>
+        <url-pattern>/index.html</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>LoginServletURL</servlet-name>
+        <jsp-file>/show/login.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServletURL</servlet-name>
+        <url-pattern>/show/login.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServletURL</servlet-name>
+        <jsp-file>/show/register.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServletURL</servlet-name>
+        <url-pattern>/show/register.html</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>LoginServletRelPath</servlet-name>
+        <servlet-class>com.homematic.Login_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServletRelPath</servlet-name>
+        <url-pattern>/show/lis/*</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>RegistrationServletURL</servlet-name>
+        <jsp-file>/show/registration.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationServletURL</servlet-name>
+        <url-pattern>/show/Registration.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegistrationServletRelPath</servlet-name>
+        <servlet-class>com.homematic.Registration_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationServletRelPath</servlet-name>
+        <url-pattern>/show/reg/*</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>LogoutServletURL</servlet-name>
+        <jsp-file>/show/logout.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServletURL</servlet-name>
+        <url-pattern>/show/logout.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServletRelPath</servlet-name>
+        <servlet-class>com.homematic.Logout_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServletRelPath</servlet-name>
+        <url-pattern>/show/log/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -1,8 +1,16 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: rener
+  Date: 13.02.2018
+  Time: 11:20
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Registration Page</title>
+    <title>HomeMatic | Registrieren</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -23,49 +31,96 @@
 <body class="register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
+        <a href="../../index.html"><b>Home</b>Matic</a>
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">Register a new membership</p>
-        <form action="../../index.html" method="post">
+        <p class="login-box-msg">Registriere einen neuen Haushalt</p>
+        <form action="reg" method="post">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Full name"/>
+                <input type="text" class="form-control" placeholder="Haushaltsname" name="registration_household_name" required/>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            </br>
+            <b>Benutzererstellung</b>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Vorname" name="registration_firstname" required/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Email"/>
+                <input type="text" class="form-control" placeholder="Nachname" name="registration_name"/>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="date" class="form-control" placeholder="Geburtsdatum" name="registration_birthdate" required/>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Email" name="registration_email" required/>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password"/>
+                <input type="password" class="form-control" placeholder="Password" name="registration_password" required/>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            </br>
+            <b>Persönliche Angaben</b>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Land" name="registration_country" required/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Retype password"/>
+                <input type="text" class="form-control" placeholder="Ort" name="registration_city" required/>
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Postleitzahl" name="registration_postal_code" required/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Straße" name="registration_street" required/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Hausnummer" name="registration_number" required/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            </br>
+            <b>Zahlungsangaben</b>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Zahlungsmethode" name="registration_payment_method_description" required/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="IBAN" name="registration_iban" required/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="checkbox icheck">
+                <label>
+                    <input type="checkbox" name="registration_sepa_ddm" required> Ich bevollmächtige hiermit das SEPA-Lastschriftmandat
+                </label>
             </div>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms</a>
+                            <input type="checkbox" name="registration_agb" required> Ich bin mit den <a href="#">AGBs </a> einverstanden
                         </label>
                     </div>
                 </div><!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Registrieren</button>
                 </div><!-- /.col -->
             </div>
         </form>
 
-        <div class="social-auth-links text-center">
+        <%--<div class="social-auth-links text-center">
             <p>- OR -</p>
             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
             <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
-        </div>
+        </div>--%>
 
-        <a href="login.html" class="text-center">I already have a membership</a>
+        <a href="login.html" class="text-center">Ich habe schonen einen Haushalt!</a>
     </div><!-- /.form-box -->
 </div><!-- /.register-box -->
 
