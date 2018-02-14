@@ -62,5 +62,22 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>LogoutServletURL</servlet-name>
+        <jsp-file>/show/logout.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServletURL</servlet-name>
+        <url-pattern>/show/logout.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServletRelPath</servlet-name>
+        <servlet-class>com.homematic.Logout_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServletRelPath</servlet-name>
+        <url-pattern>/show/log/*</url-pattern>
+    </servlet-mapping>
 
 </web-app>

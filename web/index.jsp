@@ -2,6 +2,7 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.HashMap" %>
+<%@ page import="com.homematic.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -324,7 +325,9 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <form action="log" method="post">
+                                        <button type="submit" class="btn btn-default btn-flat">Abmelden</button>
+                                    </form>
                                 </div>
                             </li>
                         </ul>

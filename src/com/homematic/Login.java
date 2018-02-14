@@ -28,8 +28,12 @@ public class Login {
                 return false;
                 //System.out.println("Passwort ist nicht korrekt");
             } else {
-                SetCookiesLogin(request, response, "user_id", Integer.toString(rs.getInt(1)), no_logout);
-                StartSession(request, response);
+                String value = Integer.toString(rs.getInt(1));
+                SetCookiesLogin(request, response, "user_id", value, no_logout);
+                SetCookiesLogin(request, response, "user_hash", Registration.CreateHash(value), no_logout);
+                StartSession(request, response, "user_id",  value);
+
+
                 return true;
             }
         }
@@ -51,8 +55,10 @@ public class Login {
 
     }
 
-    private static void StartSession(HttpServletRequest request, HttpServletResponse response) {
+    private static void StartSession(HttpServletRequest request, HttpServletResponse response,
+    String name, String value) {
         HttpSession session = request.getSession();
+        session.setAttribute(name, value);
     }
 
     public static void SetCookiesLogout(HttpServletRequest request, HttpServletResponse response,

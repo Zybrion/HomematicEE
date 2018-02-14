@@ -1,5 +1,6 @@
 package com.homematic;
 
+import javax.servlet.http.Cookie;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
@@ -60,8 +61,8 @@ public class User {
     }
 
     public String getPicture_path(int id) throws SQLException {
-        ResultSet rs =  Database.GetDataFromDB("SELECT picture_path FROM user WHERE id = '" + id + "'");
-        if(!rs.next()){
+        ResultSet rs = Database.GetDataFromDB("SELECT picture_path FROM user WHERE id = '" + id + "'");
+        if (!rs.next()) {
             picture_path = rs.getString(1);
         }
         return picture_path;
