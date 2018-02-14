@@ -380,7 +380,7 @@
 
                 <li class="active treeview">
                     <a href="#">
-                        <i class="fa fa-home"></i> <span>Haushaltsübersicht</span> <i class="fa pull-right"></i>
+                        <i class="fa fa-home"></i> <span>Haushalt</span> <i class="fa pull-right"></i>
                     </a>
                 </li>
 
@@ -389,6 +389,14 @@
                     <a href="#">
                         <i class="fa fa-cutlery"></i> <span>Speiseplan</span> <i class="fa pull-right"></i>
                     </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/show/manage_stock.jsp"><i class="fa fa-circle-o"></i> Lagerort verwalten</a></li>
+                        <li class="active"><a href="/show/manage_user.jsp"><i class="fa fa-circle-o"></i> Haushaltsmitglieder
+                            verwalten</a></li>
+                        <li class="active"><a href="/show/show_costs.jsp"><i class="fa fa-circle-o"></i> Kostenübersicht
+                            </a></li>
+                    </ul>
+
                 </li>
 
                 <!-- Eigene Vorrat -->
