@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-    Login.SetCookiesLogout(request, response, "user_id");
+    Login.UnsetCookies(request, response, "user_id");
     session=request.getSession();
     session.invalidate();
     response.sendRedirect("../index.html");

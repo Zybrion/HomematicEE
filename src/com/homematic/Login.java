@@ -16,15 +16,18 @@ public class Login {
 
     public static boolean LoginUser(String email, String password, boolean no_logout,
                                     HttpServletRequest request, HttpServletResponse response) throws SQLException {
-
+        UnsetCookies(request, response, "mail_wrong");
+        UnsetCookies(request, response, "pw_wrong");
         ResultSet rs = Database.GetDataFromDB("SELECT * FROM user WHERE email = '" + email.toLowerCase() + "'");
         if (!rs.next()) {
+            SetCookiesLogin(request, response, "mail_wrong", "X", false);
             return false;
             //System.out.println("Kein Account zu dieser E-Mail-Adresse verfügbar");
         } else {
             email = email.toLowerCase();
             String hash = Registration.CreateHash(password);
             if (!hash.equals(rs.getString(7))) {
+                SetCookiesLogin(request, response, "pw_wrong", "X", false);
                 return false;
                 //System.out.println("Passwort ist nicht korrekt");
             } else {
@@ -59,7 +62,7 @@ public class Login {
         session.setAttribute(name, value);
     }
 
-    public static void SetCookiesLogout(HttpServletRequest request, HttpServletResponse response,
+    public static void UnsetCookies(HttpServletRequest request, HttpServletResponse response,
                                        String name) {
         Cookie cookie = new Cookie(name, "");
         //cookie.setDomain("com.homematic.online");

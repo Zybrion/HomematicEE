@@ -11,7 +11,7 @@ import java.io.IOException;
 @WebServlet(name = "Logout_Servlet")
 public class Logout_Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Login.SetCookiesLogout(request, response, "user_id");
+        Login.UnsetCookies(request, response, "user_id");
         HttpSession session=request.getSession();
         session.invalidate();
         //response.sendRedirect("/show/index.html");

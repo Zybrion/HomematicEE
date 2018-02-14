@@ -7,19 +7,38 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+
+<%
+    String pw = "";
+    String mail = "";
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null) {
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("mail_wrong")) {
+                mail = cookie.getValue();
+            }
+            if (cookie.getName().equals("pw_wrong")) {
+                pw = cookie.getValue();
+            }
+        }
+
+    }
+%>
+
 <html>
 <head>
     <meta charset="UTF-8">
     <title>HomeMatic | Log in</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!— Bootstrap 3.3.2 —>
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <!— Font Awesome Icons —>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
     <!— Theme style —>
-    <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
     <!— iCheck —>
-    <link href="../plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
+    <link href="../plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css"/>
 
     <!— HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries —>
     <!— WARNING: Respond.js doesn't work if you view the page via file:// —>
@@ -32,18 +51,30 @@
 <div class="login-box">
     <div class="login-logo">
         <a href="../index2.html"><b>Home</b>Matic</a>
-    </div><!— /.login-logo —>
+    </div>
+    <!— /.login-logo —>
     <div class="login-box-body">
         <p class="login-box-msg">Logge dich ein, um zu starten!</p>
         <form action="lis" method="post">
-            <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Email" name="login_email"/>
+
+            <div class="form-group has-feedback<%
+                if (mail.equals(null)) {
+                    out.print(" has-error");
+                }
+            %>">
+                <input type="text" class="form-control" placeholder="Email" name="login_email" required/>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
-            <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Passwort" name="login_password"/>
+
+            <div class="form-group has-feedback<%
+                if (pw.equals(null)) {
+                    out.print(" has-error");
+                }
+            %>">
+                <input type="password" class="form-control" placeholder="Passwort" name="login_password" required/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
@@ -51,10 +82,12 @@
                             <input type="checkbox" name="login_no_logout"> Angemeldet bleiben
                         </label>
                     </div>
-                </div><!— /.col —>
+                </div>
+                <!— /.col —>
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Anmelden</button>
-                </div><!— /.col —>
+                </div>
+                <!— /.col —>
             </div>
         </form>
 
@@ -67,8 +100,10 @@
         <a href="#">Ich habe mein Passwort vergessen!</a><br>
         <a href="register.html" class="text-center">Registriere einen neuen Haushalt</a>
 
-    </div><!— /.login-box-body —>
-</div><!— /.login-box —>
+    </div>
+    <!— /.login-box-body —>
+</div>
+<!— /.login-box —>
 <!— jQuery 2.1.3 —>
 <script src="../plugins/jQuery/jQuery-2.1.3.min.js"></script>
 <!— Bootstrap 3.3.2 JS —>
