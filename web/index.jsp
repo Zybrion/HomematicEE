@@ -8,8 +8,19 @@
 <%
     ResultSet rs = null;
 
-    Cookie[] cookies = request.getCookies();
-    String u_id = null;
+    session = request.getSession(false);
+    String u_id = "";
+    if (session != null) {
+        u_id = (String) session.getAttribute("user_id");
+        if (u_id == null) {
+            response.sendRedirect("/show/login.html");
+        }
+    } else {
+        response.sendRedirect("/show/login.html");
+    }
+
+   /* Cookie[] cookies = request.getCookies();
+    //String u_id = null;
     if (cookies != null) {
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("user_id")) {
@@ -21,7 +32,7 @@
         }
     } else {
         response.sendRedirect("/show/login.html");
-    }
+    }*/
 
     String name = null;
 

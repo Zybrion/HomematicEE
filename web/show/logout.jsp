@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-
+    response.sendRedirect("/show/index.html");
 %>
 
 <html>

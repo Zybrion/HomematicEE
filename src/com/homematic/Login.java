@@ -30,9 +30,7 @@ public class Login {
             } else {
                 String value = Integer.toString(rs.getInt(1));
                 SetCookiesLogin(request, response, "user_id", value, no_logout);
-                SetCookiesLogin(request, response, "user_hash", Registration.CreateHash(value), no_logout);
                 StartSession(request, response, "user_id",  value);
-
 
                 return true;
             }
