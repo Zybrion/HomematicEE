@@ -80,4 +80,12 @@
         <url-pattern>/show/log/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EinkaufsListeServletURL</servlet-name>
+        <jsp-file>/show/shopping_list.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EinkaufsListeServletURL</servlet-name>
+        <url-pattern>/show/shopping_list.html</url-pattern>
+    </servlet-mapping>
 </web-app>
