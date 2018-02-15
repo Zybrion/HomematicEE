@@ -226,13 +226,13 @@ $(function () {
   });
 
   /* The todo list plugin */
-  $(".todo-list").todolist({
-    onCheck: function (ele) {
-      console.log("The element has been checked")
-    },
-    onUncheck: function (ele) {
-      console.log("The element has been unchecked")
-    }
-  });
+    $(".todo-list").todolist({
+        onCheck: function (ele) {
+            console.log("The element has been checked")
+        },
+        onUncheck: function (ele) {
+            console.log("The element has been unchecked")
+        }
+    });
 
 });

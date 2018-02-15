@@ -65,7 +65,7 @@
             <li class="header">Hauptnavigation</li>
 
             <li class="active treeview">
-                <a href="show/manage_stock.jsp">
+                <a href="/show/manage_stock.jsp">
                     <i class="fa fa-home"></i> <span>Haushalt</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -111,7 +111,7 @@
 
             <!-- Eigene Einkaufsliste -->
             <li class="treeview">
-                <a href="show/shopping_list.html">
+                <a href="/show/shopping_list.html">
                     <i class="fa fa-shopping-cart"></i> <span>Einkaufsliste</span> <i class="fa pull-right"></i>
                 </a>
             </li>

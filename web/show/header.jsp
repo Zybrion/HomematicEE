@@ -40,7 +40,7 @@
 
 <header class="main-header">
     <!-- Logo -->
-    <a href="index.jsp" class="logo"><b>Home</b>Matic</a>
+    <a href="/index.html" class="logo"><b>Home</b>Matic</a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
