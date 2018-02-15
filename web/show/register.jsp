@@ -38,26 +38,30 @@
         <p class="login-box-msg">Registriere einen neuen Haushalt</p>
         <form action="reg" method="post">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Haushaltsname" name="registration_household_name" required/>
-                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Haushaltsname" name="registration_household_name" required onblur="isHouseholdNameOk(this, document.getElementById('household_help'))"/>
+                <span class="glyphicon glyphicon-home form-control-feedback"></span>
+                <span id="household_help"></span>
             </div>
             </br>
             <b>Benutzererstellung</b>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Vorname" name="registration_firstname" required/>
+                <input type="text" class="form-control" placeholder="Vorname" name="registration_firstname" required onblur="isTheFirstNameOk(this, document.getElementById('firstname_help'))"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <span id="firstname_help"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Nachname" name="registration_name"/>
+                <input type="text" class="form-control" placeholder="Nachname" name="registration_name" onblur="isTheLastNameOk(this, document.getElementById('lastname_help'))"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <span id="lastname_help"></span>
             </div>
             <div class="form-group has-feedback">
                 <input type="date" class="form-control" placeholder="Geburtsdatum" name="registration_birthdate" required/>
-                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Email" name="registration_email" required/>
+                <input type="text" class="form-control" placeholder="Email" name="registration_email" required onblur="isEmailOk(this, document.getElementById('email_help'))"/>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <span id="email_help"></span>
             </div>
             <div class="form-group has-feedback">
                 <input type="password" class="form-control" placeholder="Password" name="registration_password" required/>
@@ -66,34 +70,60 @@
             </br>
             <b>Persönliche Angaben</b>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Land" name="registration_country" required/>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <!--<input type="text" class="form-control" placeholder="Land" name="registration_country" required/>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>-->
+                <select class="form-control" name="registration_country" required>
+                    <option>Austria</option>
+                    <option>Belgium</option>
+                    <option>Brazil</option>
+                    <option>China</option>
+                    <option>France</option>
+                    <option selected>Germany</option>
+                    <option>India</option>
+                    <option>Indonesia</option>
+                    <option>Netherlands</option>
+                    <option>Pakistan</option>
+                    <option>Poland</option>
+                    <option>Russia</option>
+                    <option>Swiss</option>
+                    <option>United Kingdom</option>
+                    <option>United States</option>
+                </select>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Ort" name="registration_city" required/>
-                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Ort" name="registration_city" required onblur="isAddressPlaceOk(this, document.getElementById('address_help'))"/>
+                <span class="glyphicon glyphicon-pushpin form-control-feedback"></span>
+                <span id="address_help"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Postleitzahl" name="registration_postal_code" required/>
-                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Postleitzahl" name="registration_postal_code" required onblur="isAddressPLZOk(this, document.getElementById('plz_help'))" />
+                <span class="glyphicon glyphicon-record form-control-feedback"></span>
+                <span id="plz_help"></span>
+
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Straße" name="registration_street" required/>
-                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Straße" name="registration_street" required onblur="isAddressStreetOk(this, document.getElementById('street_help'))"/>
+                <span class="glyphicon glyphicon-flag form-control-feedback"></span>
+                <span id="street_help"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Hausnummer" name="registration_number" required/>
-                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Hausnummer" name="registration_number" required onblur="isAddressNumberOk(this, document.getElementById('addressnumber_help'))"/>
+                <span class="glyphicon glyphicon-sound-5-1 form-control-feedback"></span>
+                <span id="addressnumber_help"></span>
             </div>
             </br>
             <b>Zahlungsangaben</b>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Zahlungsmethode" name="registration_payment_method_description" required/>
-                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                <!--  <input type="text" class="form-control" placeholder="Zahlungsmethode" name="registration_payment_method_description" required/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>      -->
+                <select class="form-control" required name="registration_payment_method_description" placeholder="Zahlungsmethode">
+                    <option selected>Lastschrift</option>
+                </select>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="IBAN" name="registration_iban" required/>
-                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="IBAN" name="registration_iban" required onblur="isIbanOk(this, document.getElementById('iban_help'))"/>
+                <span class="glyphicon glyphicon-credit-card form-control-feedback"></span>
+                <span id="iban_help"></span>
             </div>
             <div class="checkbox icheck">
                 <label>
@@ -109,7 +139,7 @@
                     </div>
                 </div><!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Registrieren</button>
+                    <button type="submit" id="submit_button" class="btn btn-primary btn-block btn-flat">Registrieren</button>
                 </div><!-- /.col -->
             </div>
         </form>
@@ -139,5 +169,94 @@
         });
     });
 </script>
+
+<!-- Feld checks auf Richtigkeit -->
+<script type="text/javascript">
+    var lock = 0;
+    function editNodeText(regex, input, helpId, helpMessage)
+
+    {
+        // See if the info matches the regex that was defined
+        // If the wrong information was entered, warn them
+        if (!regex.test(input)) {
+
+            if (helpId != null)
+            // We need to show a warning
+            // Remove any warnings that may exist
+                while (helpId.childNodes[0]){
+                lock = lock - 1;
+                    helpId.removeChild(helpId.childNodes[0]);
+                }
+
+            // Add new warning
+            helpId.appendChild(document.createTextNode(helpMessage));
+            //document.getElementById("submit_button").disabled = true;
+            lock = lock + 1;
+            document.getElementById("submit_button").style.cursor = "not-allowed";
+
+        } else {
+
+            // If the right information was entered, clear the help message
+            if (helpId != null){
+
+                // Remove any warnings that may exist
+                while (helpId.childNodes[0]){
+                    helpId.removeChild(helpId.childNodes[0]);
+                    lock = lock - 1;
+                    if(lock === 0){
+                        //ocument.getElementById("submit_button").disabled = false;
+                        document.getElementById("submit_button").style.cursor = "default";
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    // inputField – ID Number for the html text box
+    // helpId – ID Number for the child node I want to print a warning in
+    function isTheFirstNameOk(inputField, helpId) {
+
+        // See if the input value contains any text
+        return editNodeText(/^[A-Za-z]{1}[a-z]{2,15}[-]{0,1}[A-Z]{0,1}[a-z]{0,15}[-]{0,1}[A-Z]{0,1}[a-z]{0,15}$/, inputField.value, helpId, "Geben Sie einen gültigen Vornamen ein.");
+    }
+    function isTheLastNameOk(inputField, helpId) {
+
+        // See if the input value contains any text
+        return editNodeText(/^[A-Za-z]{1}[a-z]{2,15}[-]{0,1}[A-Z]{0,1}[a-z]{0,15}[-]{0,1}[A-Z]{0,1}[a-z]{0,15}$/, inputField.value, helpId, "Geben Sie einen gültigen Nachnamen ein.");
+    }
+    function isAddressStreetOk(inputField, helpId) {
+
+        return editNodeText(/^[A-Za-z\.\' \-]{5,70}$/, inputField.value, helpId, "Geben Sie eine gültige Straße ein");
+    }
+    function isAddressNumberOk(inputField, helpId) {
+
+        //return editNodeText(/^[0-9]{1,5}\/{0,1}[0-9]{0,5}[A-Za-z]{0,2}$/, inputField.value, helpId, "Geben Sie eine gültige Adressnummer ein.");
+        return editNodeText(/^[0-9]{1,10}$/, inputField.value, helpId, "Geben Sie eine gültige Adressnummer ein.");
+    }
+    function isAddressPlaceOk(inputField, helpId) {
+
+        return editNodeText(/^[A-Za-z\.\' \-]{5,40}$/, inputField.value, helpId, "Geben Sie einen gültigen Ort ein");
+    }
+    function isAddressPLZOk(inputField, helpId) {
+
+        return editNodeText(/^([A-Za-z0-9]{3,10})$/, inputField.value, helpId, "Geben Sie eine gültige Adressnummer ein.");
+    }
+    function isEmailOk(inputField, helpId) {
+
+        return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Geben Sie eine gültige E-Mail ein. Beispiel: max.mustermann@google.com");
+    }
+    function isIbanOk(inputField, helpId) {
+
+        return editNodeText(/^[A-Z]{2}[0-9]{10,32}$/, inputField.value, helpId, "Geben Sie einen gültigen IBAN ein. Beispiel: DE12345678987654321234");
+    }
+    function isHouseholdNameOk(inputField, helpId) {
+
+        return editNodeText(/^^[A-Za-z0-9'\/|#+*~"§\$\&\(\)\[\] ]{3,45}$/, inputField.value, helpId, "Geben Sie einen gültigen Haushaltsname ein. Beispiel: 'Die Mustermanns'");
+    }
+
+</script>
+
 </body>
 </html>
