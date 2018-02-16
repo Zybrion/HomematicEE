@@ -145,7 +145,7 @@
                 </div><!-- /.col -->
 
             </div>
-            <div class="row" id="storage_display_container">
+            <div class="row">
                 <!-- Erstellung der Container mit Inhalt aller Lagerorte -->
                 <%
                     try{
@@ -187,7 +187,7 @@
                             out.println("<div class='box-header'>");
                             out.println("<h3 class='box-title'>Dein Lagerort</h3>");
                             out.println("</div><!-- /.box-header -->");
-                            out.println("<form role='form'>");
+                            out.println("<form role='form' action='createStorage'>");
                             out.println("<div class='box-body'>");
                             out.println(" <div class='form-group'>");
                             out.println("<label for='storage_name'>Lagerortname</label>");
@@ -227,6 +227,9 @@
                         resSetStorage.beforeFirst();
                     }catch(Exception e){}
                 %>
+            </div>
+            <div class="row" id="storage_display_container">
+
             </div>
         </section>
     </div><!-- /.content-wrapper -->
