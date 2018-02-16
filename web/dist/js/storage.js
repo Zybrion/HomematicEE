@@ -10,6 +10,6 @@ function showNewStorage(u_id, name, type){
             document.getElementById("txtHint").innerHTML = this.responseText;
         }
     };
-    xhttp.open("GET", "getcustomer.asp?q="+u_id, true);
+    xhttp.open("GET", "getstorage.jsp?q="+u_id, true);
     xhttp.send();
 }
