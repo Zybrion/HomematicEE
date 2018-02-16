@@ -6,4 +6,9 @@ public class Stock {
     private int household_id;
     private StockContent[] stock_content;
 
+    public Stock(int id) {
+        this.id = id;
+    }
+
+
 }
