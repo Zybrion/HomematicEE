@@ -28,7 +28,6 @@ public class Storage_Servlet extends HttpServlet {
         String user_id = "";
         if (session != null) {
             household_id = (String) session.getAttribute("household_id");
-            user_id = (String) session.getAttribute("user_id");
         } else {
 
         }
@@ -41,7 +40,7 @@ public class Storage_Servlet extends HttpServlet {
             case "change":
                 Database.UpdateDataInDB("UPDATE storage SET description = '"+request.getParameter("storage_name")+"',"
                         +"storage_type_id = '"+Integer.parseInt(request.getParameter("storage_type"))
-                        +"' WHERE id = " + user_id);
+                        +"' WHERE id = " + Integer.parseInt(request.getParameter("hid_name")));
                 break;
             case "delete":
                 Database.DeleteDataFromDB("DELETE FROM storage where id = " +
