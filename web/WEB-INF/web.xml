@@ -99,6 +99,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>VorratVerwaltenServletURL</servlet-name>
+        <jsp-file>/show/manage_stock.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VorratVerwaltenServletURL</servlet-name>
+        <url-pattern>/show/manage_stock.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>createStorageRelPath</servlet-name>
         <servlet-class>com.homematic.Storage_Servlet</servlet-class>
     </servlet>
