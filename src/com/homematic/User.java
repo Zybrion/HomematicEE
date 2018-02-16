@@ -14,9 +14,24 @@ public class User {
     private int household_id;
     private Preference[] preference;
     private String picture_path;
+    private int userrole_id;
 
-    public User(int id) {
+    public User(int id) throws SQLException {
         this.id = id;
+        ResultSet rs = Database.GetDataFromDB("SELECT * FROM user WHERE id = " + this.id);
+
+        if (rs.next()) {
+            this.name = rs.getString(2);
+            this.firstname = rs.getString(3);
+            this.email = rs.getString(4);
+            this.birthday = rs.getString(5);
+            this.household_id = rs.getInt(6);
+            this.preference = GetUserPreferences(this.id);
+            this.userrole_id = rs.getInt(7);
+            this.picture_path = rs.getString(8);
+        }
+
+        Database.CloseConnection();
     }
 
     public User(String name, String firstname, String email, String password, String birthday,

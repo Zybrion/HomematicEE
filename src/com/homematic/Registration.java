@@ -39,6 +39,7 @@ public class Registration {
         Household hd = CreateHouseholdInDB(household_name, adr.getId(), pm.getId());
         User user = CreateUserInDB(user_name, user_firstname, user_email, user_password, user_birthday,
                 hd.getId(), user_picture_path);
+        Database.WriteDataToDB("INSERT INTO stock (household_id) VALUES ('" + hd.getId() + "'");
 
         Database.CloseConnection();
     }
