@@ -1,3 +1,4 @@
+/*
 package com.homematic;
 
 
@@ -50,4 +51,4 @@ class FTP{
 
         return false;
     }
-}
+}*/

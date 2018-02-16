@@ -33,7 +33,7 @@ public class Login {
             } else {
                 String value = Integer.toString(rs.getInt(1));
                 SetCookiesLogin(request, response, "user_id", value, no_logout);
-                StartSession(request, response, "user_id",  value);
+                StartSession(request, response, value, Integer.toString(rs.getInt(6)));
 
                 return true;
             }
@@ -57,9 +57,10 @@ public class Login {
     }
 
     private static void StartSession(HttpServletRequest request, HttpServletResponse response,
-    String name, String value) {
+    String user_id, String household_id) {
         HttpSession session = request.getSession();
-        session.setAttribute(name, value);
+        session.setAttribute("user_id", user_id);
+        session.setAttribute("household_id", household_id);
     }
 
     public static void UnsetCookies(HttpServletRequest request, HttpServletResponse response,
