@@ -32,6 +32,8 @@ public class Storage {
         this.household_id = household_id;
         this.storage_type_id = storage_type_id;
         this.id =SaveStorageInDB(description, household_id, storage_type_id);
+
+        Database.CloseConnection();
     }
 
     private int SaveStorageInDB(String description, int household_id, int storage_type_id) {
@@ -39,4 +41,5 @@ public class Storage {
                 "VALUES ('" + description + "', '" + household_id + "" +
                 "', '" + storage_type_id + "')");
     }
+
 }

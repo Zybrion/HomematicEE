@@ -107,5 +107,44 @@ public class Database {
         return id;
     }
 
+    public static boolean DeleteDataFromDB(String statement) {
+        Connection conn = Database.GetConnection();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        try {
+            st.executeUpdate(statement);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean UpdateDataInDB(String statement) {
+        Connection conn = Database.GetConnection();
+        Statement st = null;
+        ResultSet rs = null;
+        boolean updt = false;
+        try {
+            st = conn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            st.executeUpdate(statement);
+            updt = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return updt;
+    }
+
+
 
 }
