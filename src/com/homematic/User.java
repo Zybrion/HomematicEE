@@ -1,9 +1,8 @@
 package com.homematic;
 
-import javax.servlet.http.Cookie;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.Date;
 
 public class User {
 
@@ -40,6 +39,20 @@ public class User {
                 + pw_hash + "', '" + userrole_id + "', '" + picture_path + "')");
     }
 
+    public Preference[] GetUserPreferences(int user_id) throws SQLException {
+        Preference[] preferences = null;
+        ResultSetMetaData rsmd = null;
+        ResultSet rs = Database.GetDataFromDB("SELECT * FROM preferences WHERE user_id = " + user_id);
+        if (rs.next()) {
+            rsmd = rs.getMetaData();
+            preferences = new Preference[rsmd.getColumnCount()];
+            for (int i = 0; i <rsmd.getColumnCount(); i++){
+                preferences[i] = new Preference(rs.getInt(1), rs.getString(2).charAt(0));
+            }
+        }
+        return preferences;
+    }
+
     public String getName() {
         return name;
     }
@@ -66,5 +79,25 @@ public class User {
             picture_path = rs.getString(1);
         }
         return picture_path;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setPicture_path(String picture_path) {
+        this.picture_path = picture_path;
     }
 }

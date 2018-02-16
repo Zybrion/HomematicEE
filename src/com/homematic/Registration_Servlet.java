@@ -20,13 +20,6 @@ public class Registration_Servlet extends HttpServlet {
             sepa = 1;
         }
         String s = request.getParameter("registration_birthdate");
-        /*SimpleDateFormat date_format = new SimpleDateFormat("yyyy-mm-dd");
-        Date birthday = null;
-        try {
-            birthday = date_format.parse(request.getParameter("registration_birthdate"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }*/
         Registration.CreateDataset(request.getParameter("registration_country"),
                 request.getParameter("registration_postal_code"),
                 request.getParameter("registration_city"),
