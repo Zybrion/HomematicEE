@@ -88,4 +88,13 @@
         <servlet-name>EinkaufsListeServletURL</servlet-name>
         <url-pattern>/show/shopping_list.html</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LagerOrtVerwaltungServletURL</servlet-name>
+        <jsp-file>/show/manage_storage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LagerOrtVerwaltungServletURL</servlet-name>
+        <url-pattern>/show/manage_storage.html</url-pattern>
+    </servlet-mapping>
 </web-app>

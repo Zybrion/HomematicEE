@@ -40,9 +40,9 @@
 
 <header class="main-header">
     <!-- Logo -->
-    <a href="/index.html" class="logo"><b>Home</b>Matic</a>
+    <a href="/index.html" class="logo navbar-fixed-top"><b>Home</b>Matic</a>
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" role="navigation">
+    <nav class="navbar navbar-static-top navbar-fixed-top" role="navigation">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>

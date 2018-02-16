@@ -69,7 +69,7 @@
                     <i class="fa fa-home"></i> <span>Haushalt</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/show/manage_stock.jsp"><i class="fa fa-circle-o"></i> Lagerort verwalten</a></li>
+                    <li><a href="/show/manage_storage.html"><i class="fa fa-circle-o"></i> Lagerort verwalten</a></li>
                     <li><a href="/show/manage_user.jsp"><i class="fa fa-circle-o"></i> Haushaltsmitglieder
                         verwalten</a></li>
                     <li><a href="/show/costs.jsp"><i class="fa fa-circle-o"></i> Kostenübersicht

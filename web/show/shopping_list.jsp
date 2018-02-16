@@ -170,9 +170,10 @@
 
     </div><!-- /.content-wrapper -->
 
-    <%@ include file="footer.jsp" %>
+
 </div><!-- ./wrapper -->
 
+<%@ include file="footer.jsp" %>
 <!-- jQuery 2.1.3 -->
 <script src="../../plugins/jQuery/jQuery-2.1.3.min.js"></script>
 <!-- jQuery UI 1.11.2 -->
