@@ -93,7 +93,7 @@
                             <h3 class="box-title">Erstelle einen Lagerort</h3>
                         </div><!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form">
+                        <form role="form" action='createStorage'>
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="storage_name">Lagerortname</label>
