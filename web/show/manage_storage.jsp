@@ -30,6 +30,16 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).on("click", "#somebutton", function() { // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
+            $.get("someservlet", function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
+                $("#somediv").text(responseText);           // Locate HTML DOM element with ID "somediv" and set its text content with the response text.
+            });
+        });
+        console.log("LOGGY2");
+    </script>
+
 </head>
 <body class="skin-blue">
 <!-- Site wrapper -->
@@ -93,11 +103,11 @@
                             <h3 class="box-title">Erstelle einen Lagerort</h3>
                         </div><!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action='createStorage'>
+                        <form role="form" method="post" action='createStorage'>
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="storage_name">Lagerortname</label>
-                                    <input type="text" class="form-control" id="storage_name" placeholder="Name" name="storage_name")>
+                                    <input type="text" class="form-control" id="storage_name" placeholder="Name" name="storage_name" value="" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Lagertyp</label>
@@ -115,7 +125,7 @@
                             </div><!-- /.box-body -->
 
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary" name="storage_create" id="storage_create_button" onclick="showNewStorage(<%=u_id_saved%>, storage_name.valueOf(), storage_type.valueOf())">Erstellen</button>
+                                <button type="submit" class="btn btn-primary" name="storage_create" id="storage_create_button")">Erstellen</button>
                             </div>
                         </form>
                     </div><!-- /.box -->
@@ -187,7 +197,7 @@
                             out.println("<div class='box-header'>");
                             out.println("<h3 class='box-title'>Dein Lagerort</h3>");
                             out.println("</div><!-- /.box-header -->");
-                            out.println("<form role='form' action='createStorage'>");
+                            out.println("<form role='form' action='createStorage' method='post'>");
                             out.println("<div class='box-body'>");
                             out.println(" <div class='form-group'>");
                             out.println("<label for='storage_name'>Lagerortname</label>");
@@ -228,6 +238,7 @@
                     }catch(Exception e){}
                 %>
             </div>
+
             <div class="row" id="storage_display_container">
 
             </div>
@@ -246,6 +257,5 @@
 <script src='../../plugins/fastclick/fastclick.min.js'></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/app.min.js" type="text/javascript"></script>
-<script src="../../dist/storage.js"></script>
 </body>
 </html>
