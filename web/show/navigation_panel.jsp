@@ -88,11 +88,11 @@
 
             <!-- Eigene Vorrat -->
             <li class="treeview">
-                <a href="/show/manage_stock.jsp">
+                <a href="/show/manage_stock.html">
                     <i class="fa fa-beer"></i> <span>Vorrat</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="/show/manage_stock.jsp"><i class="fa fa-circle-o"></i> Vorrat
+                    <li class="active"><a href="/show/manage_stock.html"><i class="fa fa-circle-o"></i> Vorrat
                         verwalten</a></li>
                 </ul>
             </li>
