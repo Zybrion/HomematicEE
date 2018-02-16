@@ -153,6 +153,7 @@
                             String storageName = resSetStorage.getString(2);
                             String storageTypeName;
                             int storageTypeValue;
+                            int storageID = resSetStorage.getInt(1);
                             switch(resSetStorage.getInt(4)){
                                 case 1:
                                     resSetStorageType.next();
@@ -192,6 +193,11 @@
                             out.println("<label for='storage_name'>Lagerortname</label>");
                             out.println("<input type='text' class='form-control' placeholder='Name' name='storage_name' value='"+ storageName + "')>");
                             out.println("</div>");
+
+                            out.println(" <div class='form-group'>");
+                            out.println("<input type='hidden' class='form-control' name='hid_name' value='"+ storageID + "')>");
+                            out.println("</div>");
+
                             out.println("<div class='form-group'>");
                             out.println("<label>Lagertyp</label>");
                             out.println("<select class='form-control' name='storage_type' required>");
