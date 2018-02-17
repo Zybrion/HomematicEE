@@ -9,8 +9,8 @@ public class Homematic {
     public static void main(String[] args) throws SQLException {
 
         Stock stock = new Stock(1);
-        List <StockContent> stock_content = stock.GetStockContent();
-        for (int i = 1; i<=stock_content.size(); i++){
+        List<StockContent> stock_content = stock.GetStockContent();
+        for (int i = 0; i < stock_content.size(); i++) {
             System.out.println(stock_content.get(i).toString());
         }
 

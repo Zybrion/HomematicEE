@@ -41,4 +41,12 @@ public class Product {
         this.price = price;
         this.currency_id = currency_id;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
 }
