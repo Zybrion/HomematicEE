@@ -1,25 +1,17 @@
 package com.homematic;
 
+import javax.servlet.http.HttpSession;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Homematic {
     public static void main(String[] args) throws SQLException {
 
-
-        /*Registration.CreateDataset("Deutschland", "74182",
-                "Obersulm", "Elisabethenstraße", "15",
-                "Volksbank", "DE123456789123456789",
-                1, "Test123",
-                "Selimovic", "Nikola", "nikola@homematic.online", "admin",
-                19950518, "");
-
-        Adress adr = new Adress(1);
-        System.out.println(adr.getCity());*/
-
-        ResultSet rs = Database.GetDataFromDB("select * from user where email = 'nikola@homematic.online'");
-        if (rs.next()) {
-            System.out.println(rs.getString(3));
+        Stock stock = new Stock(1);
+        List <StockContent> stock_content = stock.GetStockContent();
+        for (int i = 1; i<=stock_content.size(); i++){
+            System.out.println(stock_content.get(i).toString());
         }
 
     }

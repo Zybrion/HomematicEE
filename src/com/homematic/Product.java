@@ -18,7 +18,7 @@ public class Product {
     public Product(int id) throws SQLException {
         this.id = id;
 
-        ResultSet rs = Database.GetDataFromDB("SELECT * FROM recipe WHERE id = " + this.id);
+        ResultSet rs = Database.GetDataFromDB("SELECT * FROM product WHERE id = " + this.id);
         if (rs.next()) {
             this.product_type = new ProductType(rs.getInt(2));
             this.description = rs.getString(3);
