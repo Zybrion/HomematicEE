@@ -294,7 +294,6 @@
             String minuten = ", " + zeitparts[1];
 
             String url = "/show/manage_recipe.html?recipe=" + rec_id;
-            System.out.println(url);
 
 
         out.println("{");

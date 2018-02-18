@@ -6,6 +6,25 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+/*    //Data for storagetype used below
+    ResultSet resSetShoppingList = null;
+
+
+    HttpSession sess = request.getSession(false);
+    String u_id_saved = "";
+    String household_id = "";
+    if (sess != null) {
+        u_id_saved = (String) sess.getAttribute("user_id");
+        household_id = (String) sess.getAttribute("household_id");
+        resSetShoppingList = Database.GetDataFromDB("SELECT p.description, p.brand, p.quantity_unit_id, pt.description " +
+                " FROM shopping_cart s, shopping_cart_pos scp, product p, product_type pt, quantity_unit qu " +
+                " WHERE s.household_id='" + household_id + "'"); //Hier muss noch viel vernetzt werden sobald das mit der ID in shopping_cart_pos geklärt ist
+    }*/
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -166,11 +185,7 @@
                 <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
             </div>
         </div><!-- /.box -->
-
-
     </div><!-- /.content-wrapper -->
-
-
 </div><!-- ./wrapper -->
 
 <%@ include file="footer.jsp" %>

@@ -253,7 +253,7 @@
     }
     function isHouseholdNameOk(inputField, helpId) {
 
-        return editNodeText(/^^[A-Za-z0-9'\/|#+*~"§\$\&\(\)\[\] ]{3,45}$/, inputField.value, helpId, "Geben Sie einen gültigen Haushaltsname ein. Beispiel: 'Die Mustermanns'");
+        return editNodeText(/^^[A-Za-z0-9'\/|#+*~"§\$\&\(\)\[\] ]{3,45}$/, inputField.value, helpId, "Geben Sie einen gültigen Haushaltsnamen ein. Beispiel: 'Die Mustermanns'");
     }
 
 </script>
