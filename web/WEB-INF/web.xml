@@ -116,4 +116,13 @@
         <url-pattern>/show/createStorage/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MealPlanServletURL</servlet-name>
+        <jsp-file>/show/meal_plan.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MealPlanServletURL</servlet-name>
+        <url-pattern>/show/meal_plan.html</url-pattern>
+    </servlet-mapping>
+
 </web-app>

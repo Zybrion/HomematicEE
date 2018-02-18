@@ -34,7 +34,7 @@
     <title></title>
 </head>
 <body>
-<aside class="main-sidebar">
+<aside class="main-sidebar" >
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
@@ -79,11 +79,9 @@
 
             <!-- Eigener Speiseplan -->
             <li class="treeview">
-                <a href="#">
+                <a href="/show/meal_plan.html">
                     <i class="fa fa-cutlery"></i> <span>Speiseplan</span> <i class="fa pull-right"></i>
                 </a>
-
-
             </li>
 
             <!-- Eigene Vorrat -->
@@ -125,7 +123,6 @@
             -->
 
             <li class="header">HomeMatic</li>
-
         </ul>
     </section>
     <!-- /.sidebar -->

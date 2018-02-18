@@ -1,50 +1,5 @@
-<%@ page import="com.homematic.Database" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.util.Map" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="com.homematic.User" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%
-    /*ResultSet rs = null;
-
-    session = request.getSession(false);
-    String u_id = "";
-    if (session != null) {
-        u_id = (String) session.getAttribute("user_id");
-        if (u_id == null) {
-            response.sendRedirect("/show/login.html");
-        }
-    } else {
-        response.sendRedirect("/show/login.html");
-    }
-*/
-   /* Cookie[] cookies = request.getCookies();
-    //String u_id = null;
-    if (cookies != null) {
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("user_id")) {
-                u_id = cookie.getValue();
-            }
-        }
-        if (u_id == null) {
-            response.sendRedirect("/show/login.html");
-        }
-    } else {
-        response.sendRedirect("/show/login.html");
-    }*/
-/*
-    String name = null;
-
-    rs = Database.GetDataFromDB("SELECT name, firstname FROM user WHERE id='" + u_id + "';");
-    if (rs.next()) {
-        //out.println(rs.getString(2) + " " + rs.getString(1));
-        name = rs.getString(2) + " " + rs.getString(1);
-    }
-    Database.CloseConnection();
-*/
-%>
-
 <html>
 <head>
 
@@ -52,29 +7,29 @@
     <title>AdminLTE 2 | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <!-- FontAwesome 4.3.0 -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
           type="text/css"/>
     <!-- Ionicons 2.0.0 -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
     <!-- Theme style -->
-    <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
+    <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css"/>
+    <link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css"/>
     <!-- iCheck -->
-    <link href="../../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css"/>
+    <link href="plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css"/>
     <!-- Morris chart -->
-    <link href="../../plugins/morris/morris.css" rel="stylesheet" type="text/css"/>
+    <link href="plugins/morris/morris.css" rel="stylesheet" type="text/css"/>
     <!-- jvectormap -->
-    <link href="../../plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css"/>
+    <link href="plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css"/>--%>
     <!-- Date Picker -->
-    <link href="../../plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css"/>
+    <link href="plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css"/>
     <!-- Daterange picker -->
-    <link href="../../plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+    <link href="plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
     <!-- bootstrap wysihtml5 - text editor -->
-    <link href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css"/>
+    <link href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -82,9 +37,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-
 </head>
-<body class="skin-blue">
+<body class="skin-blue fixed">
 <div class="wrapper">
 
     <!-- Einbindung des Headers -->
@@ -330,37 +284,37 @@
         $.widget.bridge('uibutton', $.ui.button);
     </script>
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- Morris.js charts -->
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <%--    <!-- Morris.js charts -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="../../plugins/morris/morris.min.js" type="text/javascript"></script>
+    <script src="plugins/morris/morris.min.js" type="text/javascript"></script>--%>
     <!-- Sparkline -->
-    <script src="../../plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
-    <!-- jvectormap -->
-    <script src="../../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-    <script src="../../plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="../../plugins/knob/jquery.knob.js" type="text/javascript"></script>
+    <script src="plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+     <!-- jvectormap -->
+     <script src="../../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+     <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+     <!-- jQuery Knob Chart -->
+     <script src="plugins/knob/jquery.knob.js" type="text/javascript"></script>
     <!-- daterangepicker -->
-    <script src="../../plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
     <!-- datepicker -->
-    <script src="../../plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
     <!-- Bootstrap WYSIHTML5 -->
-    <script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
     <!-- iCheck -->
-    <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <script src="plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <!-- Slimscroll -->
-    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- FastClick -->
-    <script src='../../plugins/fastclick/fastclick.min.js'></script>
+    <script src='plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
-    <script src="../../dist/js/app.min.js" type="text/javascript"></script>
+    <script src="dist/js/app.min.js" type="text/javascript"></script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="../../dist/js/pages/dashboard.js" type="text/javascript"></script>
+    <script src="dist/js/pages/dashboard.js" type="text/javascript"></script>
 
     <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js" type="text/javascript"></script>
+    <script src="dist/js/demo.js" type="text/javascript"></script>
 
 </body>
 </html>

@@ -50,10 +50,10 @@ $(function () {
     alert("You chose: " + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
   });
 
-  /* jQueryKnob */
+  /!* jQueryKnob *!/
   $(".knob").knob();
 
-  //jvectormap data
+/*  //jvectormap data
   var visitorsData = {
     "US": 398, //USA
     "SA": 400, //Saudi Arabia
@@ -91,7 +91,7 @@ $(function () {
       if (typeof visitorsData[code] != "undefined")
         el.html(el.html() + ': ' + visitorsData[code] + ' new visitors');
     }
-  });
+  });*/
 
   //Sparkline charts
   var myvalues = [1000, 1200, 920, 927, 931, 1027, 819, 930, 1021];
@@ -127,7 +127,7 @@ $(function () {
     height: '250px'
   });
 
-  /* Morris.js Charts */
+  /!* Morris.js Charts *!/
   // Sales chart
   var area = new Morris.Area({
     element: 'revenue-chart',
@@ -200,11 +200,11 @@ $(function () {
   });
 
 
-  /* BOX REFRESH PLUGIN EXAMPLE (usage with morris charts) */
+  /!* BOX REFRESH PLUGIN EXAMPLE (usage with morris charts) *!/
   $("#loading-example").boxRefresh({
     source: "ajax/dashboard-boxrefresh-demo.php",
     onLoadDone: function (box) {
-      bar = new Morris.Bar({
+      var bar = new Morris.Bar({
         element: 'bar-chart',
         resize: true,
         data: [
