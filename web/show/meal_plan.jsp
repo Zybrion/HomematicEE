@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.sql.Date" %>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.time.ZonedDateTime" %><%--
   Created by IntelliJ IDEA.
   User: Rene
   Date: 17.02.2018
@@ -6,6 +9,26 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    //Loading Data for Calendar
+    //Data for storagetype used below
+    ResultSet resSetMeals = null;
+
+    HttpSession sess = request.getSession(false);
+    String u_id_saved = "";
+    String household_id = "";
+    if (sess != null) {
+        u_id_saved = (String) sess.getAttribute("user_id");
+        household_id = (String) sess.getAttribute("household_id");
+
+        resSetMeals = Database.GetDataFromDB("SELECT distinct m.id, m.recipe_id, m.date, m.daytime_id, r.description, d.description FROM meal m, recipe r, daytime d WHERE m.household_id='" + household_id + "' and m.recipe_id = r.id and m.daytime_id = d.id ORDER BY m.date asc, m.daytime_id asc");
+    }
+
+
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,14 +73,12 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Blank page
-                <small>it all starts here</small>
+            <h1>Speiseplan
+                <small>Die Übersicht über die Mahlzeiten</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
+                <li class="active"><a href="meal_plan.html">Speiseplan</a></li>
             </ol>
         </section>
 
@@ -65,7 +86,7 @@
         <section class="content">
 
             <div class="row">
-                <div class="col-md-3">
+                <%--<div class="col-md-3">
                     <div class="box box-solid">
                         <div class="box-header with-border">
                             <h4 class="box-title">Draggable Events</h4>
@@ -118,8 +139,8 @@
                             </div><!-- /input-group -->
                         </div>
                     </div>
-                </div><!-- /.col -->
-                <div class="col-md-9">
+                </div><!-- /.col -->--%>
+                <div class="col-md-12">
                     <div class="box box-primary">
                         <div class="box-body no-padding">
                             <!-- THE CALENDAR -->
@@ -182,6 +203,8 @@
         }
         ini_events($('#external-events div.external-event'));
 
+
+
         /* initialize the calendar
          -----------------------------------------------------------------*/
         //Date for the calendar events (dummy data)
@@ -203,7 +226,7 @@
             },
             //Random default events
             events: [
-                {
+/*               {
                     title: 'All Day Event',
                     start: new Date(y, m, 1),
                     backgroundColor: "#f56954", //red
@@ -246,8 +269,52 @@
                     url: 'http://google.com/',
                     backgroundColor: "#3c8dbc", //Primary (light-blue)
                     borderColor: "#3c8dbc" //Primary (light-blue)
-                }
+                },*/
+
+                <%
+    try{
+        while(resSetMeals.next()){
+            String title = resSetMeals.getString(5);
+            int rec_id = resSetMeals.getInt(2);
+            int meal_id = resSetMeals.getInt(1);
+            String zeit = resSetMeals.getString(6);
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy:M:dd");
+            String date = sdf.format(resSetMeals.getDate(3));
+            String[] datumparts = date.split(":");
+            String jahr = datumparts[0];
+            String monat = datumparts[1];
+            int temp = Integer.parseInt(monat);
+            temp--;
+            monat = ", " + temp;
+            String tag = ", " + datumparts[2];
+
+            String[] zeitparts = zeit.split(":");
+            String stunde = ", " + zeitparts[0];
+            String minuten = ", " + zeitparts[1];
+
+            String url = "/show/manage_recipe.html?recipe=" + rec_id;
+            System.out.println(url);
+
+
+        out.println("{");
+        out.println("title: '" + title + "',");
+        out.println("start: new Date(" + jahr + monat + tag + stunde + minuten + "),");
+        out.println("url: '" + url + "'," );
+        out.println("backgroundColor: '#3c8dbc'");
+        out.println("}");
+        if(resSetMeals.next()){
+            out.println(",");
+            resSetMeals.previous();
+        }
+
+    }
+    } catch(Exception e){}
+%>
+
             ],
+
+            timeFormat: 'H:mm',
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
             drop: function (date, allDay) { // this function is called when something is dropped

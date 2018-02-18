@@ -125,4 +125,13 @@
         <url-pattern>/show/meal_plan.html</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ManageRecipeServletURL</servlet-name>
+        <jsp-file>/show/manage_recipe.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManageRecipeServletURL</servlet-name>
+        <url-pattern>/show/manage_recipe.html</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -74,7 +74,7 @@
                 resSetStock = Database.GetDataFromDB("" +
                         "SELECT p.description, p.brand, c.bbd, t.description, t.category, c.amount, q.sign" +
                         " FROM stock_content c, product p, product_type t, quantity_unit q" +
-                        " WHERE c.stock_id = '1' and c.product_id = p.id and p.product_type_id = t.id and p.quantity_unit_id = q.id;");
+                        " WHERE c.stock_id ='" + household_id + "' and c.product_id = p.id and p.product_type_id = t.id and p.quantity_unit_id = q.id;");
 
             }
 
