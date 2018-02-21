@@ -150,7 +150,7 @@
             <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
         </div>--%>
 
-        <a href="login.html" class="text-center">Ich habe schonen einen Haushalt!</a>
+        <a href="login.html" class="text-center">Ich habe bereits einen Haushalt!</a>
     </div><!-- /.form-box -->
 </div><!-- /.register-box -->
 
@@ -219,16 +219,16 @@
     function isTheFirstNameOk(inputField, helpId) {
 
         // See if the input value contains any text
-        return editNodeText(/^[A-Za-z]{1}[a-z]{2,15}[-]{0,1}[A-Z]{0,1}[a-z]{0,15}[-]{0,1}[A-Z]{0,1}[a-z]{0,15}$/, inputField.value, helpId, "Geben Sie einen gültigen Vornamen ein.");
+        return editNodeText(/^[A-Za-zß]{1}[a-z]{2,15}[-]{0,1}[A-Z]{0,1}[a-z]{0,15}[-]{0,1}[A-Z]{0,1}[a-z]{0,15}$/, inputField.value, helpId, "Geben Sie einen gültigen Vornamen ein.");
     }
     function isTheLastNameOk(inputField, helpId) {
 
         // See if the input value contains any text
-        return editNodeText(/^[A-Za-z]{1}[a-z]{2,15}[-]{0,1}[A-Z]{0,1}[a-z]{0,15}[-]{0,1}[A-Z]{0,1}[a-z]{0,15}$/, inputField.value, helpId, "Geben Sie einen gültigen Nachnamen ein.");
+        return editNodeText(/^[A-Za-z]{1}[a-zß]{2,15}[-]{0,1}[A-Z]{0,1}[a-zß]{0,15}[-]{0,1}[A-Z]{0,1}[a-zß]{0,15}$/, inputField.value, helpId, "Geben Sie einen gültigen Nachnamen ein.");
     }
     function isAddressStreetOk(inputField, helpId) {
 
-        return editNodeText(/^[A-Za-z\.\' \-]{5,70}$/, inputField.value, helpId, "Geben Sie eine gültige Straße ein");
+        return editNodeText(/^[A-Za-zß\.\' \-]{5,70}$/, inputField.value, helpId, "Geben Sie eine gültige Straße ein");
     }
     function isAddressNumberOk(inputField, helpId) {
 
@@ -237,7 +237,7 @@
     }
     function isAddressPlaceOk(inputField, helpId) {
 
-        return editNodeText(/^[A-Za-z\.\' \-]{5,40}$/, inputField.value, helpId, "Geben Sie einen gültigen Ort ein");
+        return editNodeText(/^[A-Za-zß\.\' \-]{5,40}$/, inputField.value, helpId, "Geben Sie einen gültigen Ort ein");
     }
     function isAddressPLZOk(inputField, helpId) {
 
@@ -245,7 +245,7 @@
     }
     function isEmailOk(inputField, helpId) {
 
-        return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Geben Sie eine gültige E-Mail ein. Beispiel: max.mustermann@google.com");
+        return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Geben Sie eine gültige E-Mail ein. Beispiel: max.mustermann@gmail.com");
     }
     function isIbanOk(inputField, helpId) {
 
@@ -253,7 +253,7 @@
     }
     function isHouseholdNameOk(inputField, helpId) {
 
-        return editNodeText(/^^[A-Za-z0-9'\/|#+*~"§\$\&\(\)\[\] ]{3,45}$/, inputField.value, helpId, "Geben Sie einen gültigen Haushaltsnamen ein. Beispiel: 'Die Mustermanns'");
+        return editNodeText(/^^[A-Za-z0-9ß'\/|#+*~"§\$\&\(\)\[\] ]{3,45}$/, inputField.value, helpId, "Geben Sie einen gültigen Haushaltsnamen ein. Beispiel: 'Die Mustermanns'");
     }
 
 </script>
