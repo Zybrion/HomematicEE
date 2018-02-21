@@ -106,6 +106,14 @@
         <servlet-name>VorratVerwaltenServletURL</servlet-name>
         <url-pattern>/show/manage_stock.html</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>VorratAnsehenServletURL</servlet-name>
+        <jsp-file>/show/watch_stock.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VorratAnsehenServletURL</servlet-name>
+        <url-pattern>/show/watch_stock.html</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>createStorageRelPath</servlet-name>
@@ -132,6 +140,15 @@
     <servlet-mapping>
         <servlet-name>ManageRecipeServletURL</servlet-name>
         <url-pattern>/show/manage_recipe.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateProductRelPath</servlet-name>
+        <servlet-class>com.homematic.Product</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateProductRelPath</servlet-name>
+        <url-pattern>/show/createProduct/*</url-pattern>
     </servlet-mapping>
 
 </web-app>

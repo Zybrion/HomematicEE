@@ -48,13 +48,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Blank page
-                <small>it all starts here</small>
+                Lagerorte
+                <small>Lagerorte können hier verwaltet werden</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
+                <li><a href="../index.html"><i class="fa fa-dashboard"></i>Haushalt</a></li>
+                <li class="active"><a href="../show/manage_storage.html">Lagerorte</a></li>
             </ol>
         </section>
 
@@ -115,7 +114,7 @@
                             </div><!-- /.box-body -->
 
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary" name="storage_create" id="storage_create_button")">Erstellen</button>
+                                <button type="submit" class="btn btn-primary" name="storage_create" id="storage_create_button">Erstellen</button>
                             </div>
                         </form>
                     </div><!-- /.box -->
@@ -143,7 +142,6 @@
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div><!-- /.col -->
-
             </div>
             <div class="row">
                 <!-- Erstellung der Container mit Inhalt aller Lagerorte -->

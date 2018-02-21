@@ -77,7 +77,7 @@
                 <small>Die Übersicht über die Mahlzeiten</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="/index.html"><i class="fa fa-dashboard"></i>Haushalt</a></li>
                 <li class="active"><a href="meal_plan.html">Speiseplan</a></li>
             </ol>
         </section>

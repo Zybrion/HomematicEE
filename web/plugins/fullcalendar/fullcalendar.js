@@ -613,8 +613,8 @@ function smartProperty(obj, name) { // get a camel-cased/namespaced property of 
 /* Date Utilities
 ----------------------------------------------------------------------------------------------------------------------*/
 
-var dayIDs = [ 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat' ];
-var intervalUnits = [ 'year', 'month', 'week', 'day', 'hour', 'minute', 'second', 'millisecond' ];
+var dayIDs = [ 'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag' ];
+var intervalUnits = [ 'Jahr', 'Monat', 'Woche', 'Tag', 'Stunde', 'Minute', 'Sekunde', 'Millisekunde' ];
 
 
 // Diffs the two moments into a Duration where full-days are recorded first, then the remaining time.
