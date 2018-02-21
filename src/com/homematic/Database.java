@@ -5,10 +5,10 @@ import java.sql.*;
 public class Database {
 
     private static String hostname = "homematic-projekt.ddns.net";
-    private static short port = 1206;
+    private static short port = 1207;
     private static String db_name = "homematic";
-    private static String user = "nikola";
-    private static String password = "nikola1!";
+    private static String user = "homematiccon";
+    private static String password = "J+eXyf#Q";
     private static String url = "";
     private static String no_ssl = "useSSL=false";
 
