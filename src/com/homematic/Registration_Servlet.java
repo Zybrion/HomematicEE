@@ -40,7 +40,8 @@ public class Registration_Servlet extends HttpServlet {
             boolean login = Login.LoginUser(request.getParameter("registration_email"),
                     request.getParameter("registration_password"), false, request, response);
             if (login) {
-                response.sendRedirect("/index.html");
+                //response.sendRedirect("/index.html");
+                response.sendRedirect("/show/manage_storage.html");
             } else {
                 response.sendRedirect("login.html");
             }

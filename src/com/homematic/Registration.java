@@ -2,6 +2,8 @@ package com.homematic;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class Registration {
@@ -75,6 +77,15 @@ public class Registration {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        return  generatedPassword;
+        return generatedPassword;
+    }
+
+    public static boolean CheckUserExistance(String email) throws SQLException {
+        ResultSet rs = Database.GetDataFromDB("SELECT * FROM user WHERE email = '" + email.toLowerCase() + "'");
+        if (!rs.next()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
