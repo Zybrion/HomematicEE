@@ -48,13 +48,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Blank page
-                <small>it all starts here</small>
+                Lagerorte
+                <small>Lagerorte können hier verwaltet werden</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
+                <li><a href="../index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Lagerorte</li>
             </ol>
         </section>
 
