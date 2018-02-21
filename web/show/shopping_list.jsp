@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-/*    //Data for storagetype used below
+    //Data for storagetype used below
     ResultSet resSetShoppingList = null;
 
 
@@ -18,10 +18,10 @@
     if (sess != null) {
         u_id_saved = (String) sess.getAttribute("user_id");
         household_id = (String) sess.getAttribute("household_id");
-        resSetShoppingList = Database.GetDataFromDB("SELECT p.description, p.brand, p.quantity_unit_id, pt.description " +
+        resSetShoppingList = Database.GetDataFromDB("SELECT p.description, p.brand, qu.description, pt.description, scp.shopping_cart_id, scp.amount " +
                 " FROM shopping_cart s, shopping_cart_pos scp, product p, product_type pt, quantity_unit qu " +
-                " WHERE s.household_id='" + household_id + "'"); //Hier muss noch viel vernetzt werden sobald das mit der ID in shopping_cart_pos geklärt ist
-    }*/
+                " WHERE s.household_id='" + household_id + "' AND s.id = scp.shopping_cart_id AND scp.product_type_id = pt.id AND scp.product_id = p.id AND qu.id = scp.quantity_unit_id");
+    }
 
 %>
 
@@ -74,7 +74,7 @@
                 <small>Alles, was man braucht.</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="../index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="/index.html"><i class="fa fa-dashboard"></i>Haushalt</a></li>
                 <li class="active"><a href="../show/shopping_list.html">Einkaufsliste</a></li>
             </ol>
         </section>
@@ -96,89 +96,18 @@
             </div><!-- /.box-header -->
             <div class="box-body">
                 <ul class="todo-list">
-                    <li>
-                        <!-- drag handle -->
-                        <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <!-- checkbox -->
-                        <input type="checkbox" value="" name="check1"/>
-                        <!-- todo text -->
-                        <span class="text" name="check1span">Design a nice theme</span>
-                        <!-- Emphasis label -->
-                        <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                        <!-- General tools such as edit or delete-->
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
-                    <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <input type="checkbox" value="" name=""/>
-                        <span class="text">Make the theme responsive</span>
-                        <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
-                    <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <input type="checkbox" value="" name=""/>
-                        <span class="text">Let theme shine like a star</span>
-                        <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
-                    <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <input type="checkbox" value="" name=""/>
-                        <span class="text">Let theme shine like a star</span>
-                        <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
-                    <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <input type="checkbox" value="" name=""/>
-                        <span class="text">Check your messages and notifications</span>
-                        <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
-                    <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <input type="checkbox" value="" name=""/>
-                        <span class="text">Let theme shine like a star</span>
-                        <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
+                    <%
+                        try{
+                            while(resSetShoppingList.next()){
+                                out.println("<li> <span class='handle'><i class='fa fa-ellipsis-v'></i>");
+                                out.println("<i class='fa fa-ellipsis-v'></i></span>");
+                                out.println("<input type='checkbox' value='' name='" + resSetShoppingList.getString(5) + "' />");
+                                out.println("<span class='text'>" + resSetShoppingList.getString(1) + " | " + resSetShoppingList.getString(2) + " | " + resSetShoppingList.getString(6) + " " + resSetShoppingList.getString(3) + "</span>");
+                                out.println("<div class='tools'> <i class='fa fa-edit'></i> <i class='fa fa-trash-o'></i> </div> </li>");
+                            }
+                            resSetShoppingList.beforeFirst();
+                        } catch(Exception e){}
+                    %>
                 </ul>
             </div><!-- /.box-body -->
             <div class="box-footer clearfix no-border">
