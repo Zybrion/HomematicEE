@@ -1,6 +1,7 @@
 package com.homematic;
 
 import javax.servlet.http.HttpSession;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -13,6 +14,8 @@ public class Homematic {
         for (int i = 0; i < stock_content.size(); i++) {
             System.out.println(stock_content.get(i).toString());
         }
+
+        MealPlan mp = new MealPlan("2018-02-01","2018-03-31");
 
     }
 }
