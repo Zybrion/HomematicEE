@@ -18,4 +18,8 @@ public class ProductType {
         }
         Database.CloseConnection();
     }
+
+    public int getId() {
+        return id;
+    }
 }

@@ -59,4 +59,12 @@ public class Meal {
 
         return id;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public int getDaytime_id() {
+        return daytime_id;
+    }
 }

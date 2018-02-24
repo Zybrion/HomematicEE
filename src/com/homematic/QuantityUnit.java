@@ -18,4 +18,37 @@ public class QuantityUnit {
         }
         Database.CloseConnection();
     }
+
+    public static double getSmallesUnit(double amount, int qu_id){
+        switch(qu_id){
+            case 1:
+                return amount;
+            case 2:
+                return amount / 1000;
+            case 3:
+                return amount / 500;
+            case 4:
+                return amount;
+            case 5:
+                return amount / 1000;
+            case 6:
+                return amount;
+            case 7:
+                return amount;
+            case 8:
+                return amount;
+            case 9:
+                return amount;
+            case 10:
+                return amount;
+            case 11:
+                return amount;
+            case 12:
+                return amount;
+            case 13:
+                return amount;
+            default:
+                return amount;
+        }
+    }
 }

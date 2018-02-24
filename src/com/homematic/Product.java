@@ -49,4 +49,8 @@ public class Product {
     public String getBrand() {
         return brand;
     }
+
+    public ProductType getProduct_type() {
+        return product_type;
+    }
 }

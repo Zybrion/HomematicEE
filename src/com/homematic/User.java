@@ -3,6 +3,8 @@ package com.homematic;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 public class User {
 
@@ -12,7 +14,8 @@ public class User {
     private String email;
     private String birthday;
     private int household_id;
-    private Preference[] preference;
+    //private Preference[] preference;
+    private List<Preference> preference;
     private String picture_path;
     private int userrole_id;
 
@@ -26,12 +29,12 @@ public class User {
             this.email = rs.getString(4);
             this.birthday = rs.getString(5);
             this.household_id = rs.getInt(6);
-            this.preference = GetUserPreferences(this.id);
+            this.preference = GetUserPreferences();
             this.userrole_id = rs.getInt(7);
             this.picture_path = rs.getString(8);
         }
 
-        Database.CloseConnection();
+        //Database.CloseConnection();
     }
 
     public User(String name, String firstname, String email, String password, String birthday,
@@ -54,15 +57,15 @@ public class User {
                 + pw_hash + "', '" + userrole_id + "', '" + picture_path + "')");
     }
 
-    public Preference[] GetUserPreferences(int user_id) throws SQLException {
-        Preference[] preferences = null;
+    public List<Preference> GetUserPreferences() throws SQLException {
+        List<Preference> preferences = new LinkedList<>();
+        //Preference[] preferences = null;
         ResultSetMetaData rsmd = null;
-        ResultSet rs = Database.GetDataFromDB("SELECT * FROM preferences WHERE user_id = " + user_id);
-        if (rs.next()) {
+        ResultSet rs = Database.GetDataFromDB("SELECT * FROM preferences WHERE user_id = " + this.id);
+        while (rs.next()) {
             rsmd = rs.getMetaData();
-            preferences = new Preference[rsmd.getColumnCount()];
             for (int i = 0; i <rsmd.getColumnCount(); i++){
-                preferences[i] = new Preference(rs.getInt(1), rs.getString(2).charAt(0));
+                preferences.add(new Preference(rs.getInt(1), rs.getString(2).charAt(0)));
             }
         }
         return preferences;

@@ -4,18 +4,35 @@ import javax.servlet.http.HttpSession;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.List;
 
 public class Homematic {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, ParseException {
 
-        Stock stock = new Stock(1);
+        /*Stock stock = new Stock(1);
         List<StockContent> stock_content = stock.GetStockContent();
         for (int i = 0; i < stock_content.size(); i++) {
             System.out.println(stock_content.get(i).toString());
-        }
+        }*/
+        java.util.Date datum;
+        java.util.Date datum2;
+        String date = "2018-03-13";
+        String date2 = "2018-03-04";
 
-        MealPlan mp = new MealPlan("2018-02-01","2018-03-31");
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        datum = sdf.parse(date);
+        datum2 = sdf.parse(date2);
+
+        Calendar c = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
+
+        System.out.println(ChronoUnit.DAYS.between(datum.toInstant(), datum2.toInstant()));
+
 
     }
 }
