@@ -53,4 +53,8 @@ public class Product {
     public ProductType getProduct_type() {
         return product_type;
     }
+
+    public int getAmount() {
+        return amount;
+    }
 }

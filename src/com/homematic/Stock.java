@@ -26,10 +26,8 @@ public class Stock {
         ResultSet rs = Database.GetDataFromDB("SELECT * FROM stock_content WHERE stock_id = " + this.id);
         ResultSetMetaData rsmd = rs.getMetaData();
         while (rs.next()) {
-            for (int i = 0; i < rsmd.getColumnCount(); i++) {
-                stock_content.add(new StockContent(rs.getInt(1), new Product(rs.getInt(2)),
-                        rs.getDouble(3), rs.getDate(4), rs.getInt(5)));
-            }
+            stock_content.add(new StockContent(rs.getInt(1), new Product(rs.getInt(2)),
+                    rs.getDouble(3), rs.getDate(4), rs.getInt(5)));
         }
         Database.CloseConnection();
 

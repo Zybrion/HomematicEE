@@ -27,10 +27,13 @@ public class MealPlan {
 
     private Meal[] GetMeals(String from_date, String to_date) throws SQLException, ParseException {
 
-        Meal[] meals = new Meal[100];
         ResultSet rs = Database.GetDataFromDB("SELECT * FROM meal WHERE date >= '" + from_date
                 + "' AND date <= '" + to_date + "' AND household_id = " + this.household_id +
-        "AND (daytime_id = '101' OR daytime_id = '102' OR daytime_id = '103')");
+        " AND (daytime_id = '101' OR daytime_id = '102' OR daytime_id = '103')");
+        rs.last();
+        int size = rs.getRow();
+        rs.beforeFirst();
+        Meal[] meals = new Meal[size];
         ResultSetMetaData rsmd = rs.getMetaData();
         if (rs.next()) {
             for (int i = 0; i < rsmd.getColumnCount(); i++) {

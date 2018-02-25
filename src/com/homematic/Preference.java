@@ -8,4 +8,12 @@ public class Preference {
         this.product_type_id = product_type_id;
         this.preference_type = preference_type;
     }
+
+    public int getProduct_type_id() {
+        return product_type_id;
+    }
+
+    public char getPreference_type() {
+        return preference_type;
+    }
 }
