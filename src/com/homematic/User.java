@@ -30,8 +30,8 @@ public class User {
             this.birthday = rs.getString(5);
             this.household_id = rs.getInt(6);
             this.preference = GetUserPreferences();
-            this.userrole_id = rs.getInt(7);
-            this.picture_path = rs.getString(8);
+            this.userrole_id = rs.getInt(8);
+            this.picture_path = rs.getString(9);
         }
 
         //Database.CloseConnection();
@@ -63,11 +63,8 @@ public class User {
         ResultSetMetaData rsmd = null;
         ResultSet rs = Database.GetDataFromDB("SELECT * FROM preferences WHERE user_id = " + this.id);
         while (rs.next()) {
-            rsmd = rs.getMetaData();
-            for (int i = 0; i <rsmd.getColumnCount(); i++){
                 preferences.add(new Preference(rs.getInt(1), rs.getString(2).charAt(0)));
             }
-        }
         return preferences;
     }
 

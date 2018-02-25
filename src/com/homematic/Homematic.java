@@ -18,7 +18,9 @@ public class Homematic {
         List<StockContent> stock_content = stock.GetStockContent();
         for (int i = 0; i < stock_content.size(); i++) {
             System.out.println(stock_content.get(i).toString());
-        }*/
+        }
+        Recipe recipe = new Recipe(1);
+
         java.util.Date datum;
         java.util.Date datum2;
         String date = "2018-03-13";
@@ -31,7 +33,11 @@ public class Homematic {
         Calendar c = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
 
-        System.out.println(ChronoUnit.DAYS.between(datum.toInstant(), datum2.toInstant()));
+        System.out.println(ChronoUnit.DAYS.between(datum.toInstant(), datum2.toInstant()));*/
+
+        MealPlan mp = MenuSuggestion.CreateNewMenuSuggestion(1, "2018-02-26", "2018-03-04");
+
+        System.out.println("Test");
 
 
     }

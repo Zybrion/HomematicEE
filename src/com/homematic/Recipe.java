@@ -18,31 +18,41 @@ public class Recipe {
     private Daytime[] daytimes;
 
     public Recipe(int id) throws SQLException {
-        double[] amount = null;
-        ProductType[] product_type = null;
-        QuantityUnit[] quantity_unit = null;
-        Daytime[] daytime = null;
 
         this.id = id;
         ResultSet rs = Database.GetDataFromDB("SELECT * FROM recipe WHERE id = " + this.id);
-        ResultSetMetaData rsmd = rs.getMetaData();
-        if (rs.next()) {
+        rs.last();
+        int size = rs.getRow();
+        rs.beforeFirst();
+
+        double[] amount = new double[size];
+        ProductType[] product_type = new ProductType[size];
+        QuantityUnit[] quantity_unit = new QuantityUnit[size];
+        Daytime[] daytime = new Daytime[size];
+        int i = 0;
+        boolean ingredients_found = false;
+
+        while (rs.next()) {
+            ingredients_found = true;
+            amount[i] = rs.getDouble(5);
+            product_type[i] = new ProductType(rs.getInt(2));
+            quantity_unit[i] = new QuantityUnit(rs.getInt(7));
+            daytime[i] = new Daytime(rs.getString(8));
+            i++;
+        }
+        if (ingredients_found) {
+            rs.first();
             this.description = rs.getString(6);
             this.household_id = rs.getInt(3);
             this.recipe_description = new RecipeDescription(rs.getInt(4));
-            this.description = rs.getString(3);
-            for (int i = 0; i < rsmd.getColumnCount(); i++) {
-                amount[i] = rs.getDouble(5);
-                product_type[i] = new ProductType(rs.getInt(2));
-                quantity_unit[i] = new QuantityUnit(rs.getInt(7));
-                daytime[i] = new Daytime(rs.getString(8));
-            }
             this.amount = amount;
             this.product_type = product_type;
             this.quantity_unit = quantity_unit;
             this.daytimes = daytime;
         }
+
         //Database.CloseConnection();
+
     }
 
     public Recipe(ProductType[] product_type, int household_id, RecipeDescription recipe_description,
@@ -58,11 +68,11 @@ public class Recipe {
 
     public static List<Recipe> GetAllRecipes(int household_id) throws SQLException {
         List<Recipe> recipes = new LinkedList<>();
-        ResultSet rs = Database.GetDataFromDB("SELECT id FROM recipe WHERE household_id = " + household_id
-        + "OR household_id is null");
+        ResultSet rs = Database.GetDataFromDB("SELECT DISTINCT id FROM recipe WHERE household_id = " + household_id
+                + " " + "OR household_id = 0");
         ResultSetMetaData rsmd = rs.getMetaData();
         while (rs.next()) {
-                recipes.add(new Recipe(rs.getInt(1)));
+            recipes.add(new Recipe(rs.getInt(1)));
         }
         Database.CloseConnection();
         return recipes;
