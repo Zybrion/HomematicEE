@@ -90,9 +90,9 @@
                     <i class="fa fa-beer"></i> <span>Vorrat</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="/show/watch_stock.html"><i class="fa fa-circle-o"></i> Vorrat
+                    <li><a href="/show/watch_stock.html"><i class="fa fa-circle-o"></i> Vorrat
                         ansehen</a></li>
-                    <li class="active"><a href="/show/manage_stock.html"><i class="fa fa-circle-o"></i> Vorrat
+                    <li><a href="/show/manage_stock.html"><i class="fa fa-circle-o"></i> Vorrat
                         verwalten</a></li>
                 </ul>
             </li>
@@ -103,9 +103,8 @@
                     <i class="fa fa-beer"></i> <span>Rezepte</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/show/manage_recipe.jsp"><i class="fa fa-circle-o"></i> Rezept verwalten</a></li>
-                    <li class="active"><a href="/show/create_recipe.jsp"><i class="fa fa-circle-o"></i> Rezept
-                        erstellen</a></li>
+                    <li><a href="/show/watch_recipe.html"><i class="fa fa-circle-o"></i>Rezept ansehen </a></li>
+                    <li><a href="/show/manage_recipe.html"><i class="fa fa-circle-o"></i>Rezept verwalten</a></li>
                 </ul>
             </li>
 

@@ -62,6 +62,55 @@
             </ol>
         </section>
 
+        <%
+            //Data for storagetype used below
+            ResultSet resSetShoppingList = null;
+            ResultSet resSetUser = null;
+            ResultSet resSetStock = null;
+            ResultSet resSetRecipe = null;
+
+            HttpSession sess = request.getSession(false);
+            String u_id_saved = "";
+            String household_id = "";
+            if (sess != null) {
+                u_id = (String) sess.getAttribute("user_id");
+                household_id = (String) sess.getAttribute("household_id");
+                resSetShoppingList = Database.GetDataFromDB("SELECT scp.shopping_cart_id from shopping_cart_pos scp, shopping_cart sc " +
+                        "WHERE sc.household_id ='" + household_id + "' AND sc.shopping_cart_pos = scp.shopping_cart_id");
+                resSetUser = Database.GetDataFromDB("SELECT id FROM user where household_id='" + household_id + "'");
+                resSetStock = Database.GetDataFromDB("SELECT sc.id FROM stock_content sc, stock s where s.household_id='" + household_id + "' AND sc.stock_id = s.id");
+                resSetRecipe = Database.GetDataFromDB("SELECT distinct r.id from recipe r WHERE r.household_id ='" + household_id + "'");
+               /* int shoppingListEntrys = 0;
+                try {
+                    resSetShoppingList.last();
+                    shoppingListEntrys = resSetShoppingList.getRow();
+                    resSetShoppingList.beforeFirst();
+
+                }catch(Exception e) {}
+
+                int user_household_entrys = 0;
+                try {
+                    resSetUser.last();
+                    user_household_entrys = resSetUser.getRow();
+                    resSetUser.beforeFirst();
+                } catch (Exception e) {}
+
+                int stock_entrys = 0;
+                try {
+                    resSetStock.last();
+                    stock_entrys = resSetStock.getRow();
+                    resSetStock.beforeFirst();
+                } catch (Exception e) {}
+                int recipe_entrys = 0;
+                try {
+                    resSetRecipe.last();
+                    recipe_entrys = resSetRecipe.getRow();
+                    resSetRecipe.beforeFirst();
+                }catch(Exception e){}*/
+            }
+
+        %>
+
         <!-- Main content -->
         <section class="content">
             <!-- Small boxes (Stat box) -->
@@ -70,52 +119,83 @@
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>150</h3>
-                            <p>New Orders</p>
+                            <h3><%int shoppingListEntrys = 0;
+                                try {
+                                    resSetShoppingList.last();
+                                    shoppingListEntrys = resSetShoppingList.getRow();
+                                    resSetShoppingList.beforeFirst();
+
+                                }catch(Exception e) {}
+
+                                out.println(shoppingListEntrys); %></h3>
+                            <p>Einträge in der Einkaufsliste</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/show/shopping_list.html" class="small-box-footer">Mehr Informationen <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div><!-- ./col -->
                 <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
-                            <p>Bounce Rate</p>
+                            <h3><%
+                                int stock_entrys = 0;
+                                try {
+                                    resSetStock.last();
+                                    stock_entrys = resSetStock.getRow();
+                                    resSetStock.beforeFirst();
+                                } catch (Exception e) {}
+                                out.println(stock_entrys);
+                            %></h3>
+                            <p>Gegenstände im Vorrat</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/show/watch_stock.html" class="small-box-footer">Mehr Informationen <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div><!-- ./col -->
                 <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>44</h3>
-                            <p>User Registrations</p>
+                            <h3><% int user_household_entrys = 0;
+                                try {
+                                    resSetUser.last();
+                                    user_household_entrys = resSetUser.getRow();
+                                    resSetUser.beforeFirst();
+                                } catch (Exception e) {}
+                                out.println(user_household_entrys);
+                            %></h3>
+                            <p>Haushaltsmitglieder</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/show/manage_user.html" class="small-box-footer">Mehr Informationen <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div><!-- ./col -->
                 <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>65</h3>
-                            <p>Unique Visitors</p>
+                            <h3><%
+                                int recipe_entrys = 0;
+                                try {
+                                    resSetRecipe.last();
+                                    recipe_entrys = resSetRecipe.getRow();
+                                    resSetRecipe.beforeFirst();
+                                }catch(Exception e){}
+                                out.println(recipe_entrys);
+                            %></h3>
+                            <p>Einzelne Rezepte</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/show/manage_recipe.html" class="small-box-footer">Mehr Informationen <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div><!-- ./col -->
             </div><!-- /.row -->
@@ -123,151 +203,52 @@
             <!-- Main row -->
             <div class="row">
                 <!-- Left col -->
-                <section class="col-lg-7 connectedSortable">
-
-                    <!-- Calendar -->
-                    <div class="box box-solid bg-green-gradient">
-                        <div class="box-header">
-                            <i class="fa fa-calendar"></i>
-                            <h3 class="box-title">Calendar</h3>
-                            <!-- tools box -->
-                            <div class="pull-right box-tools">
-                                <!-- button with a dropdown -->
-                                <div class="btn-group">
-                                    <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-bars"></i></button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Add new event</a></li>
-                                        <li><a href="#">Clear events</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">View calendar</a></li>
-                                    </ul>
-                                </div>
-                                <button class="btn btn-success btn-sm" data-widget="collapse"><i
-                                        class="fa fa-minus"></i></button>
-                                <button class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                                </button>
-                            </div><!-- /. tools -->
-                        </div><!-- /.box-header -->
-                        <div class="box-body no-padding">
-                            <!--The calendar -->
-                            <div id="calendar" style="width: 100%"></div>
-                        </div>
-                    </div><!-- /.box -->
-
-                </section><!-- /.Left col -->
-                <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                <section class="col-lg-5 connectedSortable">
-
-
-                    <!-- TO DO List -->
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <i class="ion ion-clipboard"></i>
-                            <h3 class="box-title">Einkaufsliste</h3>
-                            <div class="box-tools pull-right">
-                                <ul class="pagination pagination-sm inline">
-                                    <li><a href="#">&laquo;</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">&raquo;</a></li>
-                                </ul>
-                            </div>
+                <div class="col-md-4">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <i class="fa fa-bullhorn"></i>
+                            <h3 class="box-title">Grundlegende Informationen</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
-                            <ul class="todo-list">
-                                <li>
-                                    <!-- drag handle -->
-                                    <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                                    <!-- checkbox -->
-                                    <input type="checkbox" value="" name=""/>
-                                    <!-- todo text -->
-                                    <span class="text">Design a nice theme</span>
-                                    <!-- Emphasis label -->
-                                    <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                                    <!-- General tools such as edit or delete-->
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span class="text">Make the theme responsive</span>
-                                    <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span class="text">Let theme shine like a star</span>
-                                    <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span class="text">Let theme shine like a star</span>
-                                    <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span class="text">Check your messages and notifications</span>
-                                    <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span class="text">Let theme shine like a star</span>
-                                    <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="callout callout-info">
+                                <h4>Ersteinrichtung</h4>
+                                <p><b>Glückwunsch!</b> Der die erste Hürde wurde bewältigt. Hier einige kleine Informationen: Ihr Vorrat besteht aus einem oder mehreren Lagerorten.
+                                    Diesen können sie in der linken Menüleiste unter <b>"Haushalt -> Lagerort verwalten"</b> erstellen.
+                                </p>
+                                <p>
+                                    Anschließend können Produkte diesem Lagerort hinzugefügt werden.
+                                    Nun benötigen Sie nur noch ein paar Rezepte und schon generieren wir vollautomatisch aufgrund ihres vorhandenen Lagerbestands und ihren definierten Rezepten
+                                    einen Speiseplan.
+                                </p>
+                                <p>
+                                    Die Produkte können Sie unter <b>"Vorrat -> Vorrat verwalten"</b> erstellen und die Rezepte unter <b>"Rezepte -> Rezepte Verwalten"</b>.
+                                </p>
+                            </div>
                         </div><!-- /.box-body -->
-                        <div class="box-footer clearfix no-border">
-                            <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
-                        </div>
                     </div><!-- /.box -->
-                    <!-- hier war calendar -->
-                </section><!-- right col -->
+                </div><!-- /.col -->
+
+                <div class="col-md-4">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <i class="fa fa-bullhorn"></i>
+                            <h3 class="box-title">Information</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="callout callout-info">
+                                <h4>Vielen Dank</h4>
+                                <p>Wir bedanken uns für die Nutzung von <b>Homematic</b> und wünschen ihnen viele abwechslungsreiche Mahlzeiten.
+                                    Dabei werden <b>keine Vorräte verschwendet</b> und somit weniger Geld in die Tonne geworfen.
+                                </p>
+                                <p>
+                                    Falls Sie Feedback für uns haben, erreichen Sie uns unter <b>info@homematic.online</b>.
+                                </p>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                </div><!-- /.col -->
+
+
 
             </div><!-- /.content-wrapper -->
     </div><!-- ./wrapper -->
