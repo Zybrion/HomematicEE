@@ -134,7 +134,7 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox" name="registration_agb" required> Ich bin mit den <a href="#">AGBs </a> einverstanden
+                            <input type="checkbox" name="registration_agb" required> Ich bin mit den <a href="../pages/easter_egg.html">AGBs </a> einverstanden
                         </label>
                     </div>
                 </div><!-- /.col -->
