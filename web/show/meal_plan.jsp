@@ -85,6 +85,20 @@
         <!-- Main content -->
         <section class="content">
 
+            <div class="row>"
+                <div class="col-md-12">
+                    <div class="box box-success">
+                        <div class="box-header">
+                            <h3 class='box-title'>Menüplan erstellen</h3>
+                        </div>
+                            <form role='form' action='createMenuPlan' method='post'>
+                                <div class='box-footer'>
+                                    <button type='submit' class='btn btn-success' name='create_menu_Plan'>Menüvorschlag erstellen</button>
+                                </div>
+                             </form>
+                    </div>
+                </div>
+
             <div class="row">
                 <%--<div class="col-md-3">
                     <div class="box box-solid">
