@@ -68,7 +68,7 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             </br>
-            <b>Persönliche Angaben</b>
+            <b>Adresse</b>
             <div class="form-group has-feedback">
                 <!--<input type="text" class="form-control" placeholder="Land" name="registration_country" required/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>-->
