@@ -93,7 +93,7 @@
                         </div>
                             <form role='form' action='createMenuPlan' method='post'>
                                 <div class='box-footer'>
-                                    <button type='submit' class='btn btn-success' name='create_menu_Plan'>Menüvorschlag erstellen</button>
+                                    <button type='submit' class='btn btn-success btn-block' name='create_menu_Plan'>Menüvorschlag erstellen</button>
                                 </div>
                              </form>
                     </div>
@@ -389,6 +389,17 @@
             $("#new-event").val("");
         });
     });
+</script>
+<script type="text/javascript">
+   /* $(document).delay(1).queue(function () {
+        $("#main_treeview").removeClass("active");
+        $('#meal_plan_treeview').addClass('active');
+    });
+    */
+   $(document).ready(function () {
+       $("#main_treeview").removeClass("active");
+       $('#meal_plan_treeview').addClass('active');
+   });
 </script>
 </body>
 </html>

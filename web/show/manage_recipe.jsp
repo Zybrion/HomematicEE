@@ -390,5 +390,12 @@
         });
     });
 </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#main_treeview").removeClass("active");
+        $('#recipe_treeview').addClass('active');
+        $('#manage_recipe_id').addClass('active');
+    });
+</script>
 </body>
 </html>

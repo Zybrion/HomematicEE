@@ -247,5 +247,11 @@
 <script src="../dist/js/app.min.js" type="text/javascript"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#main_treeview').addClass('active');
+        $('#manage_storage_id').addClass('active');
+    });
+</script>
 </body>
 </html>

@@ -97,5 +97,12 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#main_treeview").removeClass("active");
+        $('#recipe_treeview').addClass('active');
+        $('#watch_recipe_id').addClass('active');
+    });
+</script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>HomeMatic | Vorrat</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -192,6 +192,13 @@
             "bInfo": true,
             "bAutoWidth": false
         });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#main_treeview").removeClass("active");
+        $('#manage_stock_treeview').addClass('active');
+        $('#watch_stock_id').addClass('active');
     });
 </script>
 </body>

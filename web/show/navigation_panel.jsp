@@ -64,52 +64,53 @@
         <ul class="sidebar-menu">
             <li class="header">Hauptnavigation</li>
 
-            <li class="active treeview">
+            <li id="main_treeview" class="treeview">
                 <a href="/show/manage_stock.jsp">
                     <i class="fa fa-home"></i> <span>Haushalt</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/show/manage_storage.html"><i class="fa fa-circle-o"></i> Lagerort verwalten</a></li>
-                    <li><a href="/show/manage_user.jsp"><i class="fa fa-circle-o"></i> Haushaltsmitglieder
+                    <li id="manage_index_id"><a href="../index.html"><i class="fa fa-circle-o"></i>Übersicht</a></li>
+                    <li id="manage_storage_id"><a href="/show/manage_storage.html"><i class="fa fa-circle-o"></i> Lagerort verwalten</a></li>
+                    <li id="manage_user_id"><a href="/show/manage_user.jsp"><i class="fa fa-circle-o"></i> Haushaltsmitglieder
                         verwalten</a></li>
-                    <li><a href="/show/costs.jsp"><i class="fa fa-circle-o"></i> Kostenübersicht
+                    <li id="manage_costs_id"><a href="/show/costs.jsp"><i class="fa fa-circle-o"></i> Kostenübersicht
                     </a></li>
                 </ul>
             </li>
 
             <!-- Eigener Speiseplan -->
-            <li class="treeview">
+            <li id="meal_plan_treeview" class="treeview">
                 <a href="/show/meal_plan.html">
                     <i class="fa fa-cutlery"></i> <span>Speiseplan</span> <i class="fa pull-right"></i>
                 </a>
             </li>
 
             <!-- Eigene Vorrat -->
-            <li class="treeview">
-                <a href="/show/manage_stock.html">
+            <li id="manage_stock_treeview" class="treeview">
+                <a href="manage_recipe.html">
                     <i class="fa fa-beer"></i> <span>Vorrat</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/show/watch_stock.html"><i class="fa fa-circle-o"></i> Vorrat
+                    <li id="watch_stock_id"><a href="/show/watch_stock.html"><i class="fa fa-circle-o"></i> Vorrat
                         ansehen</a></li>
-                    <li><a href="/show/manage_stock.html"><i class="fa fa-circle-o"></i> Vorrat
+                    <li id="manage_stock_id"><a href="/show/manage_stock.html"><i class="fa fa-circle-o"></i> Vorrat
                         verwalten</a></li>
                 </ul>
             </li>
 
             <!-- Eigene Rezepte -->
-            <li class="treeview">
+            <li id="recipe_treeview" class="treeview">
                 <a href="#">
                     <i class="fa fa-beer"></i> <span>Rezepte</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/show/watch_recipe.html"><i class="fa fa-circle-o"></i>Rezept ansehen </a></li>
-                    <li><a href="/show/manage_recipe.html"><i class="fa fa-circle-o"></i>Rezept verwalten</a></li>
+                    <li id="watch_recipe_id"><a href="/show/watch_recipe.html"><i class="fa fa-circle-o"></i>Rezept ansehen </a></li>
+                    <li id="manage_recipe_id"><a href="/show/manage_recipe.html"><i class="fa fa-circle-o"></i>Rezept verwalten</a></li>
                 </ul>
             </li>
 
             <!-- Eigene Einkaufsliste -->
-            <li class="treeview">
+            <li id="shopping_list_treeview" class="treeview">
                 <a href="/show/shopping_list.html">
                     <i class="fa fa-shopping-cart"></i> <span>Einkaufsliste</span> <i class="fa pull-right"></i>
                 </a>

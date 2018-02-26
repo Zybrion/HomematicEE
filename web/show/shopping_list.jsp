@@ -141,5 +141,12 @@
 <script src="../dist/js/app.min.js" type="text/javascript"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#main_treeview").removeClass("active");
+        $('#shopping_list_treeview').addClass('active');
+
+    });
+</script>
 </body>
 </html>

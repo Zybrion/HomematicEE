@@ -387,5 +387,12 @@
         });
     });
 </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#main_treeview").removeClass("active");
+        $('#manage_stock_treeview').addClass('active');
+        $('#manage_stock_id').addClass('active');
+    });
+</script>
 </body>
 </html>

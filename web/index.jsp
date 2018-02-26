@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>HomeMatic | Haushalt</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -296,6 +296,12 @@
 
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#main_treeview').addClass('active');
+            $('#manage_index_id').addClass('active');
+        });
+    </script>
 
 </body>
 </html>
