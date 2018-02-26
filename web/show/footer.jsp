@@ -15,7 +15,8 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018 <a href="http://almsaeedstudio.com">HomeMatic</a>.</strong> Alle Rechte sind vorbehalten.
+    <strong>Copyright &copy; 2018 <a href="../index.html">HomeMatic</a>.</strong> Alle Rechte sind vorbehalten. <b><a href="../show/impressum.html">Impressum</a> </b>
 </footer>
+
 </body>
 </html>

@@ -44,7 +44,7 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top navbar-fixed-top" role="navigation">
         <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <a id="toggle" href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
         <div class="navbar-custom-menu">
@@ -298,6 +298,39 @@
         </div>
     </nav>
 </header>
+<script>
 
+    var link1 = document.getElementById("toggle");
+    if (typeof window.addEventListener != "undefined") {
+        link1.addEventListener("click",stopIT,false);
+    } else {
+        link1.attachEvent("onclick",stopIT);
+    }
+    var counter = 0;
+    var counter2 = 0;
+    function stopIT() {
+        if(counter2 == 1 && counter == 0){
+            alert("Bitte klick mich nicht ständig an!")
+        }
+        if(counter2 == 2 && counter == 2){
+            alert("Hörst du wohl gefälligst auf?")
+        }
+        if(counter2 == 3 && counter == 1){
+            alert("JETZT REICHTS ABER!")
+        }
+        if(counter2 == 4 && counter == 3){
+            alert("[\"hip\",\"hip\"] - Ein Informatiker auf einem Geburtstag");
+        }
+        if(counter2 == 5 && counter == 0){
+            alert("Mehr Witze gibt es wenn du noch eine weile weiter klickst.");
+        }
+        if(counter == 7){
+            counter = 0;
+            counter2++;
+        } else{
+            counter = counter +1;
+        }
+    }
+</script>
 </body>
 </html>

@@ -212,16 +212,16 @@
                         <div class="box-body">
                             <div class="callout callout-info">
                                 <h4>Ersteinrichtung</h4>
-                                <p><b>Glückwunsch!</b> Der die erste Hürde wurde bewältigt. Hier einige kleine Informationen: Ihr Vorrat besteht aus einem oder mehreren Lagerorten.
-                                    Diesen können sie in der linken Menüleiste unter <b>"Haushalt -> Lagerort verwalten"</b> erstellen.
+                                <p><b>Glückwunsch!</b> Die erste Hürde wurde bewältigt. Hier sind einige kleine Informationen: Dein Vorrat besteht aus einem oder mehreren Lagerorten.
+                                    Diese kannst du in der linken Menüleiste unter <b>"Haushalt -> Lagerort verwalten"</b> erstellen.
                                 </p>
                                 <p>
                                     Anschließend können Produkte diesem Lagerort hinzugefügt werden.
-                                    Nun benötigen Sie nur noch ein paar Rezepte und schon generieren wir vollautomatisch aufgrund ihres vorhandenen Lagerbestands und ihren definierten Rezepten
+                                    Nun benötigst du nur noch ein paar Rezepte und schon generieren wir vollautomatisch aufgrund Ihres vorhandenen Lagerbestands und deinen definierten Rezepten
                                     einen Speiseplan.
                                 </p>
                                 <p>
-                                    Die Produkte können Sie unter <b>"Vorrat -> Vorrat verwalten"</b> erstellen und die Rezepte unter <b>"Rezepte -> Rezepte Verwalten"</b>.
+                                    Die Produkte kannst du unter <b>"Vorrat -> Vorrat verwalten"</b> erstellen und die Rezepte unter <b>"Rezepte -> Rezepte Verwalten"</b>.
                                 </p>
                             </div>
                         </div><!-- /.box-body -->
@@ -237,11 +237,11 @@
                         <div class="box-body">
                             <div class="callout callout-info">
                                 <h4>Vielen Dank</h4>
-                                <p>Wir bedanken uns für die Nutzung von <b>Homematic</b> und wünschen ihnen viele abwechslungsreiche Mahlzeiten.
+                                <p>Wir bedanken uns für die Nutzung von <b>Homematic</b> und wünschen euch viele abwechslungsreiche Mahlzeiten.
                                     Dabei werden <b>keine Vorräte verschwendet</b> und somit weniger Geld in die Tonne geworfen.
                                 </p>
                                 <p>
-                                    Falls Sie Feedback für uns haben, erreichen Sie uns unter <b>info@homematic.online</b>.
+                                    Falls ihr Feedback für uns habt, erreicht ihr uns unter <b>info@homematic.online</b> oder im <a href="../show/impressum.html"><b>Impressum</b></a>.
                                 </p>
                             </div>
                         </div><!-- /.box-body -->
@@ -251,10 +251,11 @@
 
 
             </div><!-- /.content-wrapper -->
-    </div><!-- ./wrapper -->
 
+    </div><!-- ./wrapper -->
     <!-- Einbindung des Footers -->
-        <%@ include file="show/footer.jsp"%>
+    <%@ include file="show/footer.jsp"%>
+
 
     <!-- jQuery 2.1.3 -->
     <script src="../../plugins/jQuery/jQuery-2.1.3.min.js"></script>
@@ -302,6 +303,5 @@
             $('#manage_index_id').addClass('active');
         });
     </script>
-
 </body>
 </html>

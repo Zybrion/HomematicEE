@@ -151,4 +151,14 @@
         <url-pattern>/show/createProduct/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ImpressumServletURL</servlet-name>
+        <jsp-file>/show/impressum.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ImpressumServletURL</servlet-name>
+        <url-pattern>/show/impressum.html</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
