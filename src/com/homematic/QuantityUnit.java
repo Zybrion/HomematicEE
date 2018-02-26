@@ -19,7 +19,7 @@ public class QuantityUnit {
         Database.CloseConnection();
     }
 
-    public static double getSmallesUnit(double amount, int qu_id){
+    public static double getSmallestUnit(double amount, int qu_id){
         switch(qu_id){
             case 1:
                 return amount;
