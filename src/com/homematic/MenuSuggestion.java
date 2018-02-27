@@ -114,7 +114,6 @@ public class MenuSuggestion {
                 new_meals[meal_counter] = CreateMeal(household_id, cal.getTime(), 103, recipes, stock_content, to_date);
                 meal_counter++;
             }
-            cal.setTime(datum);
             cal.add(Calendar.DATE, 1);
         }
         mp = new MealPlan(household_id, new_meals);

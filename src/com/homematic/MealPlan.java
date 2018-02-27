@@ -29,7 +29,7 @@ public class MealPlan {
 
         ResultSet rs = Database.GetDataFromDB("SELECT * FROM meal WHERE date >= '" + from_date
                 + "' AND date <= '" + to_date + "' AND household_id = " + this.household_id +
-        " AND (daytime_id = '101' OR daytime_id = '102' OR daytime_id = '103')");
+                " AND (daytime_id = '101' OR daytime_id = '102' OR daytime_id = '103')");
         rs.last();
         int size = rs.getRow();
         rs.beforeFirst();
@@ -41,6 +41,13 @@ public class MealPlan {
             }
         }
         return meals;
+    }
+
+    public boolean SetMeals() {
+        for (int i = 0; i < this.meals.length; i++) {
+
+        }
+        return true;
     }
 
     public Meal[] getMeals() {

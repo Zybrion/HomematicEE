@@ -18,7 +18,8 @@ public class MenuSuggestion_Servlet extends HttpServlet {
         String from_date = "";
         String to_date = "";
         try {
-            MenuSuggestion.CreateNewMenuSuggestion(household_id, from_date, to_date);
+            MealPlan mp = MenuSuggestion.CreateNewMenuSuggestion(household_id, from_date, to_date);
+            boolean meals_set = mp.SetMeals();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ParseException e) {
