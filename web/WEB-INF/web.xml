@@ -160,5 +160,14 @@
         <url-pattern>/show/impressum.html</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CreateMealPlanRelPath</servlet-name>
+        <servlet-class>com.homematic.MenuSuggestion_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateMealPlanRelPath</servlet-name>
+        <url-pattern>/show/create_menu_Plan/*</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
