@@ -1,7 +1,9 @@
 <%@ page import="java.sql.Date" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.time.ZonedDateTime" %><%--
+<%@ page import="java.time.ZonedDateTime" %>
+<%@ page import="java.sql.Time" %>
+<%@ page import="java.time.LocalDateTime" %><%--
   Created by IntelliJ IDEA.
   User: Rene
   Date: 17.02.2018
@@ -93,6 +95,9 @@
                         </div>
                             <form role='form' action='createMenuPlan' method='post'>
                                 <div class='box-footer'>
+                                    <button type="text" hidden name="household_id" value="<%= household_id%>"></button>
+                                    <button type="text" hidden name="from_date" value="<% LocalDateTime.now();%>"></button>
+                                    <button type="text" hidden name="to_date" value="<% LocalDateTime.now().plusDays(7);%>"></button>
                                     <button type='submit' class='btn btn-success btn-block' name='create_menu_Plan'>Menüvorschlag erstellen</button>
                                 </div>
                              </form>
