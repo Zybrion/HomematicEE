@@ -30,7 +30,7 @@ public class Meal {
         this.daytime_id = daytime_id;
         this.modified = modified;
         this.household_id = household_id;
-        this.id = SaveMealInDB(recipe, date, daytime_id, modified, household_id);
+        //this.id = SaveMealInDB(recipe, date, daytime_id, modified, household_id);
     }
 
     private Recipe[] GetRecipes(int id) throws SQLException {
@@ -66,5 +66,17 @@ public class Meal {
 
     public int getDaytime_id() {
         return daytime_id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Recipe[] getRecipe() {
+        return recipe;
+    }
+
+    public int getHousehold_id() {
+        return household_id;
     }
 }

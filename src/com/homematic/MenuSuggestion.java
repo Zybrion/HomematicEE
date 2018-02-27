@@ -291,7 +291,7 @@ public class MenuSuggestion {
         return meal;
     }
 
-    private static List<User> GetHouseholdMembers(int household_id) throws SQLException {
+    public static List<User> GetHouseholdMembers(int household_id) throws SQLException {
         List<User> user = new LinkedList<>();
         ResultSet rs = Database.GetDataFromDB("SELECT id FROM user WHERE household_id = " + household_id);
         while (rs.next()) {

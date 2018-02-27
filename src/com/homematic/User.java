@@ -96,6 +96,10 @@ public class User {
         return picture_path;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

@@ -9,6 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
+import java.util.LinkedList;
+import java.util.List;
 
 public class MealPlan {
 
@@ -16,8 +18,13 @@ public class MealPlan {
     private Meal[] meals = null;
 
     public MealPlan(int household_id, String from_date, String to_date) throws SQLException, ParseException {
+        Meal[] meals = GetMeals(from_date, to_date);
         this.household_id = household_id;
-        this.meals = GetMeals(from_date, to_date);
+        if (meals == null) {
+            this.meals = null;
+        } else {
+            this.meals = meals;
+        }
     }
 
     public MealPlan(int household_id, Meal[] meals) {
@@ -43,9 +50,32 @@ public class MealPlan {
         return meals;
     }
 
-    public boolean SetMeals() {
-        for (int i = 0; i < this.meals.length; i++) {
+    public boolean SetMeals() throws SQLException {
 
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String s = "";
+        Calendar c = Calendar.getInstance();
+
+        List<User> household_members = new LinkedList<>();
+        household_members = MenuSuggestion.GetHouseholdMembers(this.household_id);
+        String members = "";
+        for (int i = 0; i < household_members.size(); i++) {
+            if (!members.equals("")) {
+                members = members + ";";
+            }
+            members = members + household_members.get(i).getId();
+        }
+        for (int i = 0; i < this.meals.length; i++) {
+            if (this.meals[i] != null) {
+                c.setTime(this.meals[i].getDate());
+                s = sdf.format(c.getTime());
+                Database.WriteDataToDB("INSERT INTO meal (recipe_id, date, daytime_id, household_id, members)" +
+                        " VALUES ('" + this.meals[i].getRecipe()[0].getId() + "', '" + s +
+                        "', '" + this.meals[i].getDaytime_id() + "', '" + this.meals[i].getHousehold_id() + "', '"
+                        + members + "')");
+            }
+
+            //  VALUES ('3', '2018-03-01', '102', '0', '1', '1;2');
         }
         return true;
     }
