@@ -166,7 +166,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateMealPlanRelPath</servlet-name>
-        <url-pattern>/show/create_menu_Plan/*</url-pattern>
+        <url-pattern>/show/redirect_meal_plan/*</url-pattern>
     </servlet-mapping>
 
 

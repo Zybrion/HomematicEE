@@ -297,23 +297,23 @@
                             //Best before date
                             out.println(" <div class='form-group'>");
                             out.println("<label for='storage_name'>Mindesthaltbarkeitsdatum</label>");
-                            out.println("<input type='date' class='form-control' placeholder='Marke' name='bbd' value='"+ date + "' required>");
+                            out.println("<input type='date' class='form-control' placeholder='Datum' name='bbd' value='"+ date + "' required>");
                             out.println("</div>");
                             //Producttype
                             out.println(" <div class='form-group'>");
                             out.println("<label for='storage_name'>Produkttyp</label>");
-                            out.println("<input type='text' class='form-control' placeholder='Marke' name='product_type' value='"+ type + "' required>");
+                            out.println("<input type='text' class='form-control' placeholder='Typ' name='product_type' value='"+ type + "' required>");
                             out.println("</div>");
                             //Product category
                             //Producttype
                             out.println(" <div class='form-group'>");
                             out.println("<label for='storage_name'>Produktkategorie</label>");
-                            out.println("<input type='text' class='form-control' placeholder='Marke' name='cat_type' value='"+ category + "' required>");
+                            out.println("<input type='text' class='form-control' placeholder='Kategorie' name='cat_type' value='"+ category + "' required>");
                             out.println("</div>");
                             //Amount
                             out.println(" <div class='form-group'>");
                             out.println("<label for='storage_name'>Menge</label>");
-                            out.println("<input type='text' class='form-control' placeholder='Marke' name='amount' value='"+ amount + "' required>");
+                            out.println("<input type='text' class='form-control' placeholder='Menge' name='amount' value='"+ amount + "' required>");
                             out.println("</div>");
                             //Einheit
                             out.println(" <div class='form-group'>");

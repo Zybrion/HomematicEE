@@ -3,7 +3,10 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.time.ZonedDateTime" %>
 <%@ page import="java.sql.Time" %>
-<%@ page import="java.time.LocalDateTime" %><%--
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.lang.*" %>
+<%--
+
   Created by IntelliJ IDEA.
   User: Rene
   Date: 17.02.2018
@@ -93,11 +96,12 @@
                         <div class="box-header">
                             <h3 class='box-title'>Menüplan erstellen</h3>
                         </div>
-                            <form role='form' action='createMenuPlan' method='post'>
+                            <form role='form' action='redirect_meal_plan' method='post'>
                                 <div class='box-footer'>
-                                    <button type="text" hidden name="household_id" value="<%= household_id%>"></button>
-                                    <button type="text" hidden name="from_date" value="<% LocalDateTime.now();%>"></button>
-                                    <button type="text" hidden name="to_date" value="<% LocalDateTime.now().plusDays(7);%>"></button>
+                                    <input type="text" hidden name="from_date" value="<%
+                                    out.println(LocalDateTime.now().toString().substring(0,10));%>"></input>
+                                    <input type="text" hidden name="to_date" value="<%
+                                    out.println(LocalDateTime.now().plusDays(7).toString().substring(0,10));%>"></input>
                                     <button type='submit' class='btn btn-success btn-block' name='create_menu_Plan'>Menüvorschlag erstellen</button>
                                 </div>
                              </form>
@@ -171,6 +175,23 @@
 
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
+    <!-- Modal -->
+    <div class="modal fade" id="modal_menu_created" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Menüvorschlag</h4>
+                </div>
+                <div class="modal-body">
+                    Ihr Menüvorschlag wurde nun erstellt oder angepasst.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div><!-- ./wrapper -->
 
 <%@include file="footer.jsp"%>;
@@ -296,7 +317,6 @@
             String title = resSetMeals.getString(5);
             int rec_id = resSetMeals.getInt(2);
             int meal_id = resSetMeals.getInt(1);
-            String zeit = resSetMeals.getString(6);
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy:M:dd");
             String date = sdf.format(resSetMeals.getDate(3));
@@ -308,9 +328,35 @@
             monat = ", " + temp;
             String tag = ", " + datumparts[2];
 
-            String[] zeitparts = zeit.split(":");
-            String stunde = ", " + zeitparts[0];
-            String minuten = ", " + zeitparts[1];
+            String zeit = resSetMeals.getString(6);
+            String stunde;
+            String minuten;
+
+            switch(zeit){
+                case "Frühstück":
+                    stunde = ", 08";
+                    minuten = ", 00";
+                    break;
+                case "Mittagessen":
+                    stunde = ", 12";
+                    minuten = ", 00";
+                    break;
+                 case "Abendessen":
+                     stunde = ", 18";
+                     minuten = ", 00";
+                     break;
+                 case "Snack":
+                     stunde = ", 16";
+                     minuten = ", 30";
+                     break;
+                 default:
+                     String[] zeitparts = zeit.split(":");
+                     stunde = ", " + zeitparts[0];
+                     minuten = ", " + zeitparts[1];
+                    break;
+            }
+
+
 
             String url = "/show/manage_recipe.html?recipe=" + rec_id;
 
@@ -406,5 +452,53 @@
        $('#meal_plan_treeview').addClass('active');
    });
 </script>
+
+<%--<c:>
+    <script>
+        if( test="${not empty MenuCreated"){
+        window.addEventListener("load",function(){
+            alert("${MenuCreated}");
+        }
+        }
+    </script>
+
+
+</c:if>--%>
+
+<script>
+    $(document).ready(function(){
+        var menuCreated = getCookie('menuCreated');
+        if(menuCreated != ""){
+            setCookie('menuCreated', "", 0);
+            //alert('Menüplan wurde kreiiert');
+            $('#modal_menu_created').modal('show');
+        }
+    });
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/show/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
+
+
 </body>
 </html>
