@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Meal {
@@ -18,10 +19,14 @@ public class Meal {
         ResultSet rs = Database.GetDataFromDB("SELECT * FROM meal WHERE id = " + id);
         this.id = id;
         this.recipe = GetRecipes(this.id);
-        this.date = rs.getDate(3);
-        this.daytime_id = rs.getInt(4);
-        this.modified = rs.getBoolean(5);
-        this.household_id = rs.getInt(6);
+        if (rs.next()) {
+            java.sql.Date date = rs.getDate(3);
+            this.date = new java.util.Date(date.getTime());
+
+            this.daytime_id = rs.getInt(4);
+            this.modified = rs.getBoolean(5);
+            this.household_id = rs.getInt(6);
+        }
     }
 
     public Meal(Recipe[] recipe, Date date, int daytime_id, boolean modified, int household_id) {
@@ -34,15 +39,16 @@ public class Meal {
     }
 
     private Recipe[] GetRecipes(int id) throws SQLException {
-        Recipe[] recipes = null;
 
-        ResultSetMetaData rsmd = null;
         ResultSet rs = Database.GetDataFromDB("SELECT * FROM meal WHERE id = " + id);
+        rs.last();
+        int size = rs.getRow();
+        rs.beforeFirst();
+        Recipe[] recipes = new Recipe[size];
         if (rs.next()) {
-            rsmd = rs.getMetaData();
-            recipes = new Recipe[20];
-            for (int i = 0; i < rsmd.getColumnCount(); i++) {
-                recipes[i] = new Recipe(rs.getInt(2));
+            for (int i = 0; i < size; i++) {
+                int rec = rs.getInt(2);
+                recipes[i] = new Recipe(rec);
             }
         }
 

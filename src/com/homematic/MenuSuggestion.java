@@ -75,7 +75,7 @@ public class MenuSuggestion {
         }
 
 
-        Meal[] meals = mp.getMeals();
+        Meal[] meals = mp.getMeals(from_date, to_date);
         Meal[] new_meals = new Meal[((int) ChronoUnit.DAYS.between(date.toInstant(), date2.toInstant())) * 3];
         date_difference = (int) ChronoUnit.DAYS.between(date.toInstant(), date2.toInstant());
         int meals_length = 0;

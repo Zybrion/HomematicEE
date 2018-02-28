@@ -34,17 +34,19 @@ public class MealPlan {
 
     private Meal[] GetMeals(String from_date, String to_date) throws SQLException, ParseException {
 
-        ResultSet rs = Database.GetDataFromDB("SELECT * FROM meal WHERE date >= '" + from_date
+        String s = "SELECT * FROM meal WHERE date >= '" + from_date
                 + "' AND date <= '" + to_date + "' AND household_id = " + this.household_id +
-                " AND (daytime_id = '101' OR daytime_id = '102' OR daytime_id = '103')");
+                " AND (daytime_id = '101' OR daytime_id = '102' OR daytime_id = '103')";
+
+        ResultSet rs = Database.GetDataFromDB(s);
         rs.last();
         int size = rs.getRow();
         rs.beforeFirst();
         Meal[] meals = new Meal[size];
-        ResultSetMetaData rsmd = rs.getMetaData();
         if (rs.next()) {
-            for (int i = 0; i < rsmd.getColumnCount(); i++) {
-                meals[i] = new Meal(rs.getInt(1));
+            for (int i = 0; i < size; i++) {
+                Meal meal = new Meal(rs.getInt(1));
+                meals[i] = meal;
             }
         }
         return meals;
@@ -80,7 +82,7 @@ public class MealPlan {
         return true;
     }
 
-    public Meal[] getMeals() {
-        return meals;
+    public Meal[] getMeals(String from_date, String to_date) throws SQLException, ParseException {
+        return GetMeals(from_date, to_date);
     }
 }

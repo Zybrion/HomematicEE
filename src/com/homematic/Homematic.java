@@ -35,7 +35,7 @@ public class Homematic {
 
         System.out.println(ChronoUnit.DAYS.between(datum.toInstant(), datum2.toInstant()));*/
 
-        MealPlan mp = MenuSuggestion.CreateNewMenuSuggestion(1, "2018-02-26", "2018-03-04");
+        MealPlan mp = MenuSuggestion.CreateNewMenuSuggestion(1, "2018-02-12", "2018-02-18");
         boolean meals_set = mp.SetMeals();
 
         System.out.println("Test");
