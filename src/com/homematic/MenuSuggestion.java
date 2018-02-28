@@ -92,14 +92,16 @@ public class MenuSuggestion {
             //Neuen geplanten Mahlzeiten. Wenn nein, wird
             //25.02.2018 | Mittagessen am 25.02.3018
             for (int y = 0; y < meals_length && recipes.size() != 0; y++) {
-                if (meals[y].getDate() == cal.getTime() && meals[y].getDaytime_id() == 101) {
-                    gen_101 = false;
-                }
-                if (meals[y].getDate() == cal.getTime() && meals[y].getDaytime_id() == 102) {
-                    gen_102 = false;
-                }
-                if (meals[y].getDate() == cal.getTime() && meals[y].getDaytime_id() == 103) {
-                    gen_103 = false;
+                if (meals[y].getDate().equals(cal.getTime())) {
+                    if (meals[y].getDaytime_id() == 101) {
+                        gen_101 = false;
+                    }
+                    if (meals[y].getDaytime_id() == 102) {
+                        gen_102 = false;
+                    }
+                    if (meals[y].getDaytime_id() == 103) {
+                        gen_103 = false;
+                    }
                 }
             }
             if (gen_101) {
@@ -168,7 +170,7 @@ public class MenuSuggestion {
                 for (int j = 0; j < recipe.getProduct_type().length; j++) {
                     for (int k = 0; k < stock_content.size(); k++) {
                         if (recipe.getProduct_type()[j].getId() == stock_content.get(k).getProduct().getProduct_type().getId()) {
-                            amount_dummy = amount_dummy + (stock_content.get(k).getAmount() * stock_content.get(k).getProduct().getAmount() );
+                            amount_dummy = amount_dummy + (stock_content.get(k).getAmount() * stock_content.get(k).getProduct().getAmount());
                         }
                     }
                     if (amount[j] <= amount_dummy) {

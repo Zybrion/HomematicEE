@@ -20,13 +20,14 @@ public class MenuSuggestion_Servlet extends HttpServlet {
         try {
             MealPlan mp = MenuSuggestion.CreateNewMenuSuggestion(household_id, from_date, to_date);
             boolean meals_set = mp.SetMeals();
+            Database.CloseConnection();
 
             Cookie c = new Cookie("menuCreated", "me");
             c.setMaxAge(-1);
             c.setPath(request.getContextPath());
             response.addCookie(c);
 
-            response.sendRedirect("../show/meal_plan.jsp");
+            response.sendRedirect("../show/meal_plan.html");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ParseException e) {
