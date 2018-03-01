@@ -1,6 +1,8 @@
 package com.homematic;
 
 import java.sql.*;
+import java.sql.Connection;
+import java.util.Properties;
 
 public class Database {
 
@@ -12,33 +14,39 @@ public class Database {
     private static String url = "";
     private static String no_ssl = "useSSL=false";
 
-    private static Connection connection = null;
+    private static Connection connection = GetConnection();
 
     private static Connection GetConnection() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (Exception e) {
-            System.out.println("Unable to load driver");
-            e.printStackTrace();
-        }
-        try {
-            url = "jdbc:mysql://" + hostname + ":" + port + "/" + db_name + "?" + no_ssl;
-            connection = DriverManager.getConnection(url, user, password);
-        } catch (SQLException sqle) {
-            System.out.println("SQLException: " + sqle.getMessage());
-            System.out.println("SQLState: " + sqle.getSQLState());
-            System.out.println("VendorError: " + sqle.getErrorCode());
-            sqle.printStackTrace();
-        }
-        return connection;
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (Exception e) {
+                System.out.println("Unable to load driver");
+                e.printStackTrace();
+            }
+            try {
+                url = "jdbc:mysql://" + hostname + ":" + port + "/" + db_name + "?" + no_ssl;
+                Properties properties = new Properties();
+                properties.put("connectTimeout", "" + (15*60*60));
+                String dbConnectionString = url + user + password;
+                return DriverManager.getConnection(dbConnectionString, properties);
+
+
+                //return DriverManager.getConnection(url, user, password);
+            } catch (SQLException sqle) {
+                System.out.println("SQLException: " + sqle.getMessage());
+                System.out.println("SQLState: " + sqle.getSQLState());
+                System.out.println("VendorError: " + sqle.getErrorCode());
+                sqle.printStackTrace();
+            }
+        return null;
     }
 
     public static void CloseConnection() {
-        try {
+        /*try {
             connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     private static boolean CheckConnection() {
@@ -53,11 +61,10 @@ public class Database {
 
     public static ResultSet GetDataFromDB(String statement) {
 
-        Connection conn = Database.GetConnection();
         Statement st = null;
         ResultSet rs = null;
         try {
-            st = conn.createStatement();
+            st = connection.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -71,12 +78,11 @@ public class Database {
 
     public static int WriteDataToDB(String statement) {
 
-        Connection conn = Database.GetConnection();
         Statement st = null;
         ResultSet rs = null;
         int id = 0;
         try {
-            st = conn.createStatement();
+            st = connection.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -108,11 +114,11 @@ public class Database {
     }
 
     public static boolean DeleteDataFromDB(String statement) {
-        Connection conn = Database.GetConnection();
+
         Statement st = null;
         ResultSet rs = null;
         try {
-            st = conn.createStatement();
+            st = connection.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -127,12 +133,12 @@ public class Database {
     }
 
     public static boolean UpdateDataInDB(String statement) {
-        Connection conn = Database.GetConnection();
+
         Statement st = null;
         ResultSet rs = null;
         boolean updt = false;
         try {
-            st = conn.createStatement();
+            st = connection.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -144,7 +150,6 @@ public class Database {
         }
         return updt;
     }
-
 
 
 }

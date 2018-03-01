@@ -110,8 +110,7 @@ public class MenuSuggestion {
             }
             if (gen_102) {
                 new_meals[meal_counter] = CreateMeal(household_id, cal.getTime(), 102, recipes, stock_content, to_date);
-                meal_counter++;
-            }
+                meal_counter++;            }
             if (gen_103) {
                 new_meals[meal_counter] = CreateMeal(household_id, cal.getTime(), 103, recipes, stock_content, to_date);
                 meal_counter++;

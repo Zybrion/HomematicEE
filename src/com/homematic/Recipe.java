@@ -51,7 +51,7 @@ public class Recipe {
             this.daytimes = daytime;
         }
 
-        //Database.CloseConnection();
+        Database.CloseConnection();
 
     }
 
