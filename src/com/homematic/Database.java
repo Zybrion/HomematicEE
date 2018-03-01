@@ -27,9 +27,9 @@ public class Database {
             url = "jdbc:mysql://" + hostname + ":" + port + "/" + db_name + "?" + no_ssl;
             Properties properties = new Properties();
             properties.put("connectTimeout", "" + (15 * 60 * 60));
-            String dbConnectionString = url + user + password;
-            return DriverManager.getConnection(dbConnectionString, properties);
-
+            properties.put("user", user);
+            properties.put("password", password);
+            return DriverManager.getConnection(url, properties);
 
             //return DriverManager.getConnection(url, user, password);
         } catch (SQLException sqle) {
