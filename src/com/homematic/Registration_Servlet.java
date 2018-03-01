@@ -2,6 +2,7 @@ package com.homematic;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,23 @@ import java.text.SimpleDateFormat;
 @WebServlet(name = "Registration_Servlet")
 public class Registration_Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+            boolean bool = Registration.CheckUserExistance("registration_email");
+            if (bool) {
+                Cookie cookie = new Cookie("aiu", "X");
+                cookie.setMaxAge(-1);
+                response.addCookie(cookie);
+            } else {
+                Cookie cookie = new Cookie("aiu", "X");
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
         int sepa = 0;
         String sepa_ddm = request.getParameter("registration_sepa_ddm");
         if (sepa_ddm != null) {

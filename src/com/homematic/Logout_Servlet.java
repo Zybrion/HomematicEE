@@ -14,6 +14,7 @@ public class Logout_Servlet extends HttpServlet {
         Login.UnsetCookies(request, response, "user_id");
         HttpSession session=request.getSession();
         session.invalidate();
+        Database.CloseConnection2();
         //response.sendRedirect("/show/index.html");
     }
 

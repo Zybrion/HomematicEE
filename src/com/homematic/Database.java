@@ -17,27 +17,27 @@ public class Database {
     private static Connection connection = GetConnection();
 
     private static Connection GetConnection() {
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (Exception e) {
-                System.out.println("Unable to load driver");
-                e.printStackTrace();
-            }
-            try {
-                url = "jdbc:mysql://" + hostname + ":" + port + "/" + db_name + "?" + no_ssl;
-                Properties properties = new Properties();
-                properties.put("connectTimeout", "" + (15*60*60));
-                String dbConnectionString = url + user + password;
-                return DriverManager.getConnection(dbConnectionString, properties);
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception e) {
+            System.out.println("Unable to load driver");
+            e.printStackTrace();
+        }
+        try {
+            url = "jdbc:mysql://" + hostname + ":" + port + "/" + db_name + "?" + no_ssl;
+            Properties properties = new Properties();
+            properties.put("connectTimeout", "" + (15 * 60 * 60));
+            String dbConnectionString = url + user + password;
+            return DriverManager.getConnection(dbConnectionString, properties);
 
 
-                //return DriverManager.getConnection(url, user, password);
-            } catch (SQLException sqle) {
-                System.out.println("SQLException: " + sqle.getMessage());
-                System.out.println("SQLState: " + sqle.getSQLState());
-                System.out.println("VendorError: " + sqle.getErrorCode());
-                sqle.printStackTrace();
-            }
+            //return DriverManager.getConnection(url, user, password);
+        } catch (SQLException sqle) {
+            System.out.println("SQLException: " + sqle.getMessage());
+            System.out.println("SQLState: " + sqle.getSQLState());
+            System.out.println("VendorError: " + sqle.getErrorCode());
+            sqle.printStackTrace();
+        }
         return null;
     }
 
@@ -47,6 +47,14 @@ public class Database {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
+    }
+
+    public static void CloseConnection2() {
+        try {
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static boolean CheckConnection() {
@@ -61,6 +69,9 @@ public class Database {
 
     public static ResultSet GetDataFromDB(String statement) {
 
+        if (connection == null) {
+            connection = GetConnection();
+        }
         Statement st = null;
         ResultSet rs = null;
         try {
@@ -78,6 +89,9 @@ public class Database {
 
     public static int WriteDataToDB(String statement) {
 
+        if (connection == null) {
+            connection = GetConnection();
+        }
         Statement st = null;
         ResultSet rs = null;
         int id = 0;
@@ -115,6 +129,9 @@ public class Database {
 
     public static boolean DeleteDataFromDB(String statement) {
 
+        if (connection == null) {
+            connection = GetConnection();
+        }
         Statement st = null;
         ResultSet rs = null;
         try {
@@ -134,6 +151,9 @@ public class Database {
 
     public static boolean UpdateDataInDB(String statement) {
 
+        if (connection == null) {
+            connection = GetConnection();
+        }
         Statement st = null;
         ResultSet rs = null;
         boolean updt = false;
