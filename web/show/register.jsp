@@ -152,6 +152,25 @@
 
         <a href="login.html" class="text-center">Ich habe bereits einen Haushalt!</a>
     </div><!-- /.form-box -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="model_register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Registrierung</h4>
+                </div>
+                <div class="modal-body">
+                    Ihre E-Mail Adresse ist bereits vergeben! Bitte benutze eine noch freie E-Mail-Adresse um die Registrierung abzuschließen.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div><!-- /.register-box -->
 
 <!-- jQuery 2.1.3 -->
@@ -160,6 +179,7 @@
 <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- iCheck -->
 <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+<script src="../dist/js/pages/modal_functions.js" type="text/javascript"></script>
 <script>
     $(function () {
         $('input').iCheck({
@@ -255,6 +275,19 @@
 
         return editNodeText(/^^[A-Za-z0-9ß'\/|#+*~"§\$\&\(\)\[\] ]{3,45}$/, inputField.value, helpId, "Geben Sie einen gültigen Haushaltsnamen ein. Beispiel: 'Die Mustermanns'");
     }
+
+</script>
+
+<script>
+    $(document).ready(function(){
+        var menuCreated = getCookie('aiu');
+        if(menuCreated != ""){
+            setCookie('aiu', "", 0);
+            //alert('Menüplan wurde kreiiert');
+            $('#modal_register').modal('show');
+        }
+    });
+
 
 </script>
 

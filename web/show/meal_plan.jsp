@@ -214,6 +214,8 @@
 <script src="../plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
 <!-- jQuery UI 1.11.1 -->
 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
+<script src="../dist/js/pages/modal_functions.js" type="text/javascript"></script>
+
 <!-- Page specific script -->
 <script type="text/javascript">
     $(function () {
@@ -474,7 +476,7 @@
             $('#modal_menu_created').modal('show');
         }
     });
-
+/*
     function setCookie(cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -496,7 +498,7 @@
             }
         }
         return "";
-    }
+    }*/
 </script>
 
 
