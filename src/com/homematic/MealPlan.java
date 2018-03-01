@@ -43,11 +43,12 @@ public class MealPlan {
         int size = rs.getRow();
         rs.beforeFirst();
         Meal[] meals = new Meal[size];
-        if (rs.next()) {
-            for (int i = 0; i < size; i++) {
+        int i = 0;
+        while (rs.next()) {
+            //for (int i = 0; i < size; i++) {
                 Meal meal = new Meal(rs.getInt(1));
-                meals[i] = meal;
-            }
+                meals[i++] = meal;
+            //}
         }
         return meals;
     }
