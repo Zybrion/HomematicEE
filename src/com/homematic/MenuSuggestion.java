@@ -76,7 +76,7 @@ public class MenuSuggestion {
 
 
         Meal[] meals = mp.getMeals(from_date, to_date);
-        Meal[] new_meals = new Meal[((int) ChronoUnit.DAYS.between(date.toInstant(), date2.toInstant())) * 3];
+        Meal[] new_meals = new Meal[((int) (10 + ChronoUnit.DAYS.between(date.toInstant(), date2.toInstant())) * 3)];
         date_difference = (int) ChronoUnit.DAYS.between(date.toInstant(), date2.toInstant());
         int meals_length = 0;
         if (meals != null) {
@@ -84,7 +84,7 @@ public class MenuSuggestion {
         }
         //Loopt über 7 Tage (eine Woche)
         cal.setTime(datum);
-        for (int i = 0; i <= date_difference && recipes.size() != 0; i++) {
+        for (int i = 0; i < date_difference && recipes.size() != 0; i++) {
             boolean gen_101 = true;
             boolean gen_102 = true;
             boolean gen_103 = true;
