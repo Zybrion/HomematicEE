@@ -34,7 +34,8 @@
 %>
 <html>
 <head>
-    <title></title>
+    <script src="../plugins/pace/pace.js"></script>
+    <link href="../plugins/pace/themes/flash.css" rel="stylesheet" />
 </head>
 <body>
 

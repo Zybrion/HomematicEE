@@ -50,7 +50,7 @@
 <body class="login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="../index2.html"><b>Home</b>Matic</a>
+        <a href="../index.html"><b>Home</b>Matic</a>
     </div>
     <!— /.login-logo —>
     <div class="login-box-body">

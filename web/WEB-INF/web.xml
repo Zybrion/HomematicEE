@@ -143,6 +143,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>WatchRecipeServletURL</servlet-name>
+        <jsp-file>/show/watch_recipe.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WatchRecipeServletURL</servlet-name>
+        <url-pattern>/show/watch_recipe.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>CreateProductRelPath</servlet-name>
         <servlet-class>com.homematic.Product</servlet-class>
     </servlet>
@@ -169,5 +178,33 @@
         <url-pattern>/show/redirect_meal_plan/*</url-pattern>
     </servlet-mapping>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/404.html</location>
+    </error-page>
+
+    <servlet>
+        <servlet-name>404ServletURL</servlet-name>
+        <jsp-file>/WEB-INF/404.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>404ServletURL</servlet-name>
+        <url-pattern>/WEB-INF/404.html</url-pattern>
+    </servlet-mapping>
+
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/500.html</location>
+    </error-page>
+
+    <servlet>
+        <servlet-name>500ServletURL</servlet-name>
+        <jsp-file>/WEB-INF/500.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>500ServletURL</servlet-name>
+        <url-pattern>/WEB-INF/500.html</url-pattern>
+    </servlet-mapping>
 
 </web-app>
