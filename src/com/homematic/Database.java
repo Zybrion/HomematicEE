@@ -6,8 +6,10 @@ import java.util.Properties;
 
 public class Database {
 
-    private static String hostname = "homematic-projekt.ddns.net";
-    private static short port = 1207;
+    //private static String hostname = "homematic-projekt.ddns.net";
+    private static String hostname = "localhost";
+    //private static short port = 1207;
+    private static short port = 3306;
     private static String db_name = "homematic";
     private static String user = "homematiccon";
     private static String password = "J+eXyf#Q";
